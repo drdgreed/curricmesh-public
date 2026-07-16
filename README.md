@@ -22,7 +22,7 @@
 
 **▶ [curricmesh.vercel.app](https://curricmesh.vercel.app)** — frontend on Vercel, API on Render.
 
-🎬 **[Watch the 47-second demo](docs/curricmesh-demo.mp4)** (`docs/curricmesh-demo.mp4`) — the full path: login → course browser → dependency graph → alignment → release diff → AI impact analysis → review **approve + merge** (executable release to v1.2.0). No narration needed; the on-screen actions tell the story.
+🎬 **[Watch the 47-second demo](https://github.com/drdgreed/curricmesh-public/blob/main/docs/curricmesh-demo.mp4)** — the full path: login → course browser → dependency graph → alignment → release diff → AI impact analysis → review **approve + merge** (executable release to v1.2.0). No narration needed; the on-screen actions tell the story.
 
 > **Cold start.** The API runs on Render's free tier and sleeps when idle, so the **first** request after a quiet period can take **~30–60 s** to wake. Give the login a moment on the first load; subsequent requests are fast.
 
