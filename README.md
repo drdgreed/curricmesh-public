@@ -20,15 +20,11 @@
 
 ## Live Demo
 
-**▶ [curricmesh.vercel.app](https://curricmesh.vercel.app)** — frontend on Vercel, API on Render.
+**▶ [curricmesh.vercel.app](https://curricmesh.vercel.app)** — frontend on Vercel, API on Render. Log in with any demo account (listed under [Demo Logins](#demo-logins)); password `demo-pass-123`.
 
-🎬 **[Watch the 47-second demo](https://github.com/drdgreed/curricmesh-public/blob/main/docs/curricmesh-demo.mp4)** — the full path: login → course browser → dependency graph → alignment → release diff → AI impact analysis → review **approve + merge** (executable release to v1.2.0). No narration needed; the on-screen actions tell the story.
+https://github.com/user-attachments/assets/2ae8343b-020e-4daa-9599-3e8a023f61c2
 
-> **Cold start.** The API runs on Render's free tier and sleeps when idle, so the **first** request after a quiet period can take **~30–60 s** to wake. Give the login a moment on the first load; subsequent requests are fast.
-
-**Demo logins** — emails `<role>@careerforge.demo` and `<role>@acme.demo`; password **`demo-pass-123`**. Roles: `architect`, `program_manager`, `instructor_lead`, `instructor`, `qa_lead`, `devops`. The two orgs (Career Forge + Acme) prove tenant isolation — each login sees only its own curriculum. Start as **`architect@careerforge.demo`** and explore the [live demo](https://curricmesh.vercel.app).
-
-The 2-minute path: **Course** (browse the calendar, open an asset) → **Dependency Graph** → **Dashboard** → **Changes** (the `v1.0.0 → v1.1.0` release diff with structural sharing) → **Propose Change** (stage a change, **Analyze impact (AI)**) → **Review** (a seeded mid-review change request: **Approve** to add the 2nd approval, then **Merge** to run the executable release live and watch the new version appear across Course / Graph / Changes).
+*47-second walkthrough (Architect view): login → course browser → dependency graph → alignment → release diff → AI impact analysis → review **approve + merge** (executable release to v1.2.0). No narration — the on-screen actions tell the story. Full click paths are in the [Demo Walkthrough](#demo-walkthrough).*
 
 ---
 
@@ -62,6 +58,25 @@ We wrote a **white paper** — *The Curriculum Versioning Framework & Repository
   - **LLM-as-judge QA** pre-scores the six QA dimensions (1–5 with evidence) as an **advisory draft** that *can never satisfy the release gate*. A human QA Lead reviews and promotes it.
   - **Evaluation harness** measures the AI against ground truth and publishes the numbers below.
 - **Notifies on commit.** Slack/email notifications fire after commit, non-blocking, surface-don't-swallow.
+
+---
+
+## Two Sides of the Platform
+
+CurricMesh serves two distinct audiences with different jobs — and the same immutable versioning core keeps them in sync.
+
+**For curriculum teams — authoring & governance** *(architects, program managers, instructor leads, QA leads)*
+- **Build & publish** courses with an AI co-pilot: objectives → auto-categorized content → weekly-load warnings → a versioned `v1.0.0` publish.
+- **Change safely** through the enforced pipeline: CCR → six-dimension QA → two-approver release gate, with the dependency cascade, revision-delta staleness, and a GitHub-PR-style release diff shown *before* the merge.
+- **AI at authoring time** (advisory, gate-enforced): change-impact estimation, prerequisite inference, andragogy guidance, and SOTA-gap CCR drafts — none of it can bypass the human gate.
+
+**For learners — delivery** *(enrolled students)*
+- A **Course Player** that serves the released, version-pinned curriculum — a cohort always sees one specific, immutable version.
+- A **grounded RAG tutor** that answers only from the course's own content and **never sees learner identity** (a structural privacy invariant, not just a prompt rule).
+- **Assessments** graded against their rubric, with localized feedback.
+- **Rendered slide decks** per module.
+
+Authors change the curriculum through a governed workflow; learners always read a specific, released version — the mesh guarantees the two never drift.
 
 ---
 
