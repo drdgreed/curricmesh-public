@@ -1,0 +1,82 @@
+{
+  "_meta": {
+    "purpose": "Recorded snapshots of gap-extraction runs, replayed by ReplayExtractor so CI is deterministic and network-free. Keyed by curriculum slug so the harness can score gap detection across MULTIPLE curricula (RE3). Each list is crafted to exercise the metrics machinery with hand-computable precision/recall against that curriculum's planted gaps.",
+    "note": "SYNTHETIC / portfolio demo artifact. NOT live model output.",
+    "per_curriculum_intended_metrics": {
+      "agentic-ai-production": "2 TP (MCP, Agent Observability), 1 FN (moderate Fine-tuning gap not surfaced), 1 FP ('Kubernetes for Agents'). precision 2/3, recall 2/3. (Unchanged from the original single-curriculum fixture — preserves the default ReplayExtractor path + e2e test.)",
+      "cloud-platform-engineering": "4 findings hitting all 3 planted gaps (eBPF observability, Platform Engineering/IDP, FinOps) plus 1 FP ('Serverless Containers'). tp=3, fp=1, fn=0 -> precision 3/4, recall 1.0. NOTE: precision here is GAP-level (tp = distinct planted gaps hit, capped at the number of gaps), not finding-level, so 3/4 precision requires hitting 3 gaps. Deliberately DISTINCT from curriculum 1 (2/3 . 2/3) so the aggregate over both is a real micro-average, not a copy: tp=5, fp=2, fn=1 -> precision 5/7, recall 5/6."
+    }
+  },
+  "agentic-ai-production": [
+    {
+      "topic": "Model Context Protocol (MCP)",
+      "coverage_status": "missing",
+      "evidence": [
+        "Senior Agentic AI Engineer: 'A strong understanding of Model Context Protocol (MCP) for standardizing agent-tool integration is required.'",
+        "Multiple vendor docs reference MCP as the standard agent-tool transport."
+      ],
+      "proposed_bump": "major",
+      "rationale": "MCP appears across the corpus as a required agent-tool integration standard, but the bootcamp only teaches generic function-calling. A dedicated MCP module is warranted."
+    },
+    {
+      "topic": "Agent Observability with OpenTelemetry & Distributed Tracing",
+      "coverage_status": "missing",
+      "evidence": [
+        "Job postings list OpenTelemetry span emission and distributed tracing across multi-agent execution as production requirements.",
+        "Vendor docs describe LangSmith / Arize Phoenix trace ingestion for live agents."
+      ],
+      "proposed_bump": "major",
+      "rationale": "Production agent observability (OpenTelemetry, distributed tracing) is a first-class operational requirement in the corpus, distinct from the bootcamp's design-time offline evaluation."
+    },
+    {
+      "topic": "Kubernetes for Agents",
+      "coverage_status": "partial",
+      "evidence": [
+        "A couple of job postings mention deploying agents on Kubernetes clusters."
+      ],
+      "proposed_bump": "minor",
+      "rationale": "Some corpus entries reference Kubernetes-based agent deployment. (NOTE: this is a deliberately-planted FALSE POSITIVE — Kubernetes is not one of the ground-truth planted gaps; it demonstrates precision < 1.0.)"
+    }
+  ],
+  "cloud-platform-engineering": [
+    {
+      "topic": "eBPF-based Observability (Cilium)",
+      "coverage_status": "missing",
+      "evidence": [
+        "Multiple job postings standardize on eBPF observability with Cilium for kernel-level tracing across all clusters.",
+        "Vendor whitepaper: eBPF programs run safely in the kernel to capture network/security/performance telemetry without code changes."
+      ],
+      "proposed_bump": "major",
+      "rationale": "The program teaches Prometheus/Grafana metrics but not eBPF-based observability (Cilium, kernel-level tracing), which the corpus treats as a baseline production skill."
+    },
+    {
+      "topic": "FinOps & Cloud Cost Governance (showback / chargeback)",
+      "coverage_status": "partial",
+      "evidence": [
+        "Vendor briefs describe FinOps platforms providing showback/chargeback reporting and cost-anomaly detection.",
+        "Roughly half the corpus lists cost governance and cost optimization as required or preferred skills."
+      ],
+      "proposed_bump": "minor",
+      "rationale": "The program teaches 'Cloud Cost Basics' but not FinOps as a practice (cost governance, showback/chargeback). This is the lower-signal (moderate) gap — surfacing it demonstrates recall at a reduced signal level, distinct from curriculum 1 which MISSES its moderate gap."
+    },
+    {
+      "topic": "Platform Engineering & Internal Developer Platforms (Backstage)",
+      "coverage_status": "missing",
+      "evidence": [
+        "Postings describe building an Internal Developer Platform (IDP) with Backstage golden paths and self-service infrastructure.",
+        "Platform engineering — treating the platform as a product — defines the dominant 2026 cloud-platform role."
+      ],
+      "proposed_bump": "major",
+      "rationale": "The program teaches Kubernetes/Terraform/GitOps as individual tools but not platform engineering as a discipline (IDP, Backstage, golden paths, platform-as-a-product)."
+    },
+    {
+      "topic": "Serverless Containers (AWS Fargate / Cloud Run)",
+      "coverage_status": "partial",
+      "evidence": [
+        "A job posting mentions running some workloads on managed serverless container runtimes."
+      ],
+      "proposed_bump": "minor",
+      "rationale": "Serverless-container runtimes get a passing mention. (NOTE: this is a deliberately-planted FALSE POSITIVE — it is not one of this curriculum's ground-truth planted gaps; it demonstrates precision < 1.0.)"
+    }
+  ]
+}

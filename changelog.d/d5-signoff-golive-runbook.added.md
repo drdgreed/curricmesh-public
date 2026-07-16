@@ -1,0 +1,1 @@
+- **D5 tutor privacy sign-off + delivery go-live runbook** (`docs/compliance/D5-TUTOR-PRIVACY-SIGNOFF.md`, `docs/DELIVERY_GOLIVE_RUNBOOK.md`) — the compliance gate (owner-signed) and the exact secret-touching ops steps to turn on learner delivery.

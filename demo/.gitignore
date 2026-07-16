@@ -1,0 +1,5 @@
+# Third-party licensed media — keep these locally in assets/, do NOT commit.
+# Required for regeneration; re-add them on a fresh clone (see README).
+assets/Maya.jpg
+assets/maya_clip.mp4
+assets/demo-music.mp3

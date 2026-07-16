@@ -1,0 +1,137 @@
+# Render blueprint for the CurricMesh backend + Postgres.
+# Deploy: Render dashboard -> New -> Blueprint -> point at this repo.
+# Docs: https://render.com/docs/blueprint-spec
+#
+# IMPORTANT (RLS): the DATABASE_URL wired below uses Render's default DB
+# connection string, whose user is the database OWNER. The container runs
+# `alembic upgrade head` on boot as that owner — which is correct for DDL.
+# But for the DB-layer RLS backstop to engage at runtime you must, AFTER the
+# first deploy, run scripts/create_app_role.sql and switch DATABASE_URL to the
+# non-superuser `curricmesh_app` role. See docs/DEPLOYMENT.md step 3 and
+# AGENT_LESSONS.md P-001.
+
+databases:
+  - name: curricmesh-db
+    databaseName: curricmesh
+    # Matches the LIVE plan. The DB was upgraded in the dashboard; a blueprint
+    # sync tries to make reality match this file, and Render refuses plan
+    # DOWNGRADES ("cannot downgrade database from Basic-256mb to Free") —
+    # which aborted the ENTIRE sync and blocked creating the freshness cron
+    # (found 2026-07-05). If the DB plan changes again, update this line.
+    plan: basic-256mb
+    postgresMajorVersion: "16"
+
+services:
+  - type: web
+    name: curricmesh-api
+    runtime: docker
+    plan: free
+    dockerfilePath: ./backend/Dockerfile
+    dockerContext: ./backend
+    healthCheckPath: /docs
+    autoDeploy: true
+    envVars:
+      # Render's `connectionString` is a plain postgres:// URL for the DB OWNER.
+      # Do NOT try to compose URLs from ${...} refs — Render does NOT interpolate
+      # env vars inside `value:` fields, so the literal "${PGPORT}" reaches the
+      # container and the app crashes parsing the URL (AGENT_LESSONS P-007).
+      # Instead we pass the connection string straight through: the app normalizes
+      # the scheme to +asyncpg (app/config.py) and Alembic to +psycopg2
+      # (alembic/env.py) at startup, so one string feeds both correctly.
+      #
+      # POST-BOOTSTRAP: after running scripts/create_app_role.sql, override
+      # DATABASE_URL in the dashboard to the non-superuser curricmesh_app role so
+      # RLS engages (docs/DEPLOYMENT.md step 3; AGENT_LESSONS P-001, P-008).
+      # Leave DATABASE_URL_SYNC as the OWNER — migrations need DDL rights.
+      # NOTE: re-syncing this blueprint resets dashboard overrides — re-apply the
+      # curricmesh_app DATABASE_URL after any manual blueprint sync.
+      - key: DATABASE_URL
+        fromDatabase: { name: curricmesh-db, property: connectionString }
+      - key: DATABASE_URL_SYNC
+        fromDatabase: { name: curricmesh-db, property: connectionString }
+      # Must be >= 32 bytes in production (the app refuses to start otherwise).
+      - key: SECRET_KEY
+        generateValue: true
+      - key: APP_ENV
+        value: production
+      # Set this to the deployed Vercel frontend origin (no trailing slash),
+      # e.g. https://curricmesh.vercel.app — update after the frontend deploys.
+      - key: CORS_ORIGINS
+        sync: false
+      # Optional: enables AI features + live SOTA research. Set in dashboard.
+      - key: ANTHROPIC_API_KEY
+        sync: false
+
+  # ---------------------------------------------------------------------------
+  # Biweekly freshness cron — runs the industry-news + university-watchlist
+  # pipeline and emails a digest of new CCRs + actions needed.
+  # Schedule: 1st and 15th of each month at 14:00 UTC (offset by +1h from the
+  # career-foundry cron at 13:00 UTC to avoid simultaneous SMTP quota drain).
+  #
+  # IMPORTANT (RLS — same rule as the web service above):
+  #   The DATABASE_URL wired below uses Render's default connection string for
+  #   the DB OWNER. The pipeline runner calls `use_org(org_id)` which pushes the
+  #   `app.current_org` GUC via org_scoped_session so RLS fires correctly — but
+  #   only when the session role is the non-superuser `curricmesh_app` role, not
+  #   the owner. After bootstrap, override DATABASE_URL for this cron service in
+  #   the Render dashboard to the `curricmesh_app` connection string (same step 3
+  #   from docs/DEPLOYMENT.md; AGENT_LESSONS P-001). Without this override, RLS
+  #   policies are skipped and every org would see every other org's watchlist.
+  #
+  # IMPORTANT (P-007 — no ${VAR} interpolation in value: fields):
+  #   Render does NOT interpolate env var references inside `value:` fields.
+  #   Do NOT write value: "${SOME_OTHER_VAR}" — the literal string reaches the
+  #   container and the app will fail to parse it (AGENT_LESSONS P-007).
+  #
+  # IMPORTANT (blueprint sync resets dashboard overrides):
+  #   Re-syncing this blueprint from the dashboard will reset any override you
+  #   applied (e.g. the curricmesh_app DATABASE_URL, ANTHROPIC_API_KEY, all six
+  #   email vars). Re-apply all dashboard-only values after any manual blueprint
+  #   sync. (Same caveat applies to the web service above.)
+  #
+  # EMAIL VARS:
+  #   SMTP_HOST/PORT/USER/PASSWORD, FROM_EMAIL, and NOTIFY_EMAIL_TO all use
+  #   sync: false — David sets them in the Render dashboard. Their values are
+  #   the career-foundry Railway SMTP / Resend credentials (reuse authorized
+  #   2026-07-05). SMTP_PORT is the one exception: port 587 is universal and safe
+  #   to commit as a literal value (no secret; no interpolation needed).
+  # ---------------------------------------------------------------------------
+  - type: cron
+    name: curricmesh-freshness
+    runtime: docker
+    # Cron jobs have NO free plan (verified against Render docs 2026-07-05:
+    # "minimum monthly charge of $1 per cron job service"). `starter` is the
+    # cheapest valid cron plan; billing is prorated by the second, and a
+    # biweekly ~minutes-long run stays near the $1/mo floor.
+    plan: starter
+    schedule: "0 14 1,15 * *"   # 1st & 15th, 14:00 UTC (offset from career-foundry's 13:00)
+    dockerfilePath: ./backend/Dockerfile
+    dockerContext: ./backend
+    dockerCommand: python -m scripts.freshness_pipeline_run
+    autoDeploy: true
+    envVars:
+      # See RLS caveat above — override to curricmesh_app role after bootstrap.
+      - key: DATABASE_URL
+        fromDatabase: { name: curricmesh-db, property: connectionString }
+      - key: SECRET_KEY
+        generateValue: true
+      - key: APP_ENV
+        value: production
+      - key: FRESHNESS_PIPELINE_ENABLED
+        value: "true"
+      # Set in dashboard — enables live AI extraction and gap analysis.
+      - key: ANTHROPIC_API_KEY
+        sync: false
+      # Email digest — see EMAIL VARS note above. David sets all six in dashboard.
+      - key: SMTP_HOST
+        sync: false
+      - key: SMTP_PORT
+        value: "587"
+      - key: SMTP_USER
+        sync: false
+      - key: SMTP_PASSWORD
+        sync: false
+      - key: FROM_EMAIL
+        sync: false
+      - key: NOTIFY_EMAIL_TO
+        sync: false

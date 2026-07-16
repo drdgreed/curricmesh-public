@@ -1,0 +1,142 @@
+[
+  {
+    "title": "Senior Agentic AI Engineer — Platform Team",
+    "kind": "job_posting",
+    "body": "We are seeking a Senior Agentic AI Engineer to build and maintain our internal multi-agent orchestration platform. Candidates must have hands-on experience with LLM-based agent frameworks (LangGraph, CrewAI, or AutoGen), ReAct and Plan-and-Execute agent architectures, and robust tool-use / function-calling patterns. A strong understanding of Model Context Protocol (MCP) for standardizing agent-tool integration is required; we have fully adopted MCP as our internal standard for connecting agents to external data sources and APIs. You will also be responsible for implementing distributed tracing and observability pipelines using OpenTelemetry and LangSmith to monitor agent behavior in production. Experience with RAG pipelines and vector databases (Weaviate, Pinecone, or pgvector) is a plus.",
+    "captured_at": "2026-03-15T00:00:00Z",
+    "topics": ["multi-agent orchestration", "ReAct", "plan-and-execute", "tool use", "function calling", "Model Context Protocol (MCP)", "agent observability", "distributed tracing", "RAG", "vector databases"]
+  },
+  {
+    "title": "AI Systems Engineer — Agentic Infrastructure",
+    "kind": "job_posting",
+    "body": "Join our infrastructure team building the next generation of agentic AI systems. Required skills include deep knowledge of prompt engineering, chain-of-thought reasoning, and retrieval-augmented generation (RAG). You will design and operate observability stacks for long-running agentic workflows — including trace collection via OpenTelemetry, span-level debugging, and latency dashboards. Familiarity with Model Context Protocol (MCP) is strongly preferred; we use MCP to standardize how our agents connect to internal tools. Fine-tuning smaller open-source LLMs (Mistral, LLaMA-3) for agent-specific tasks using RLHF or DPO techniques is a growing part of the role.",
+    "captured_at": "2026-02-20T00:00:00Z",
+    "topics": ["prompt engineering", "chain-of-thought", "RAG", "agent observability", "distributed tracing", "OpenTelemetry", "Model Context Protocol (MCP)", "fine-tuning", "RLHF", "DPO"]
+  },
+  {
+    "title": "Staff ML Engineer — Autonomous Agent Products",
+    "kind": "job_posting",
+    "body": "We are hiring a Staff ML Engineer to lead the development of autonomous agent products. You will architect multi-agent systems using LangGraph and define our internal standards for agent evaluation including red-teaming. Experience with Model Context Protocol (MCP) is essential — our entire tooling layer speaks MCP and we expect candidates to contribute to our MCP server implementations. You will own our observability strategy, including LangSmith trace analysis, Arize Phoenix for LLM monitoring, and cost/latency dashboards. Knowledge of fine-tuning transformer models on agent-specific datasets using supervised fine-tuning (SFT) and RLHF is highly desirable for our model customization roadmap.",
+    "captured_at": "2026-01-10T00:00:00Z",
+    "topics": ["multi-agent orchestration", "LangGraph", "agent evaluation", "red-teaming", "Model Context Protocol (MCP)", "agent observability", "LangSmith", "Arize Phoenix", "fine-tuning", "RLHF", "SFT"]
+  },
+  {
+    "title": "AI Engineer — Retrieval and Agent Systems",
+    "kind": "job_posting",
+    "body": "Our team builds retrieval-augmented generation systems powering enterprise search and autonomous research workflows. The ideal candidate has strong experience with embedding strategies, vector databases (Pinecone, Weaviate, Qdrant), and hybrid search approaches. You should understand agent memory architectures — both short-term scratchpads and long-term persistent memory stores. Knowledge of Model Context Protocol (MCP) is required as we use it to expose our retrieval infrastructure to downstream agents. Experience deploying agents at scale with attention to latency and cost optimization is expected. Familiarity with observability tooling (LangSmith, W&B Weave) to monitor retrieval quality and agent trace behavior is a plus.",
+    "captured_at": "2026-04-01T00:00:00Z",
+    "topics": ["RAG", "embedding strategies", "vector databases", "agent memory", "Model Context Protocol (MCP)", "deployment", "latency optimization", "agent observability", "LangSmith"]
+  },
+  {
+    "title": "Lead AI Engineer — Multi-Agent Orchestration",
+    "kind": "job_posting",
+    "body": "Lead the design and implementation of complex multi-agent pipelines for automated software engineering tasks. We use a combination of Plan-and-Execute agents, tool-using sub-agents, and a supervisor orchestrator built on LangGraph. Strong knowledge of safety and alignment techniques for agentic systems — including output filtering, guardrails, and sandboxing — is required. We expect deep familiarity with Model Context Protocol (MCP) as our primary interface between agents and external APIs. You will define our production observability strategy using distributed tracing (OpenTelemetry), token usage dashboards, and anomaly detection on agent traces to catch runaway loops and cost spikes.",
+    "captured_at": "2026-03-22T00:00:00Z",
+    "topics": ["multi-agent orchestration", "plan-and-execute", "tool use", "LangGraph", "safety and guardrails", "Model Context Protocol (MCP)", "agent observability", "distributed tracing", "OpenTelemetry"]
+  },
+  {
+    "title": "Senior LLM Engineer — Agent Platform",
+    "kind": "job_posting",
+    "body": "We are building a developer platform for deploying agentic AI applications and are hiring a Senior LLM Engineer. Core responsibilities include designing prompt engineering pipelines, implementing chain-of-thought and reflection patterns, and building reliable function-calling interfaces. You will drive adoption of Model Context Protocol (MCP) across the platform — writing MCP server adapters for our customers' data sources and contributing to our MCP specification extensions. You will also implement fine-tuning workflows (LoRA, QLoRA) for customer-specific domain adaptation of foundation models to improve agent task performance.",
+    "captured_at": "2026-02-05T00:00:00Z",
+    "topics": ["prompt engineering", "chain-of-thought", "function calling", "Model Context Protocol (MCP)", "fine-tuning", "LoRA", "QLoRA", "domain adaptation"]
+  },
+  {
+    "title": "AI Infrastructure Engineer — LLMOps",
+    "kind": "job_posting",
+    "body": "This LLMOps-focused role owns the production infrastructure for our growing fleet of LLM-powered agents. Responsibilities include managing deployment pipelines for agentic services (latency budgets, autoscaling, reliability SLAs), building observability tooling with full distributed tracing across agent invocation trees, and maintaining our agent evaluation harnesses. We require strong knowledge of Model Context Protocol (MCP) — our agents expose capabilities and consume external tools exclusively via MCP. Bonus: experience fine-tuning open-weight models (LLaMA-3, Qwen-2) on agent task datasets using RLHF or DPO pipelines.",
+    "captured_at": "2026-01-28T00:00:00Z",
+    "topics": ["deployment", "latency optimization", "agent observability", "distributed tracing", "agent evaluation", "Model Context Protocol (MCP)", "fine-tuning", "RLHF", "DPO"]
+  },
+  {
+    "title": "Senior AI Engineer — Conversational Agents",
+    "kind": "job_posting",
+    "body": "Join our conversational AI team building autonomous customer support agents. Required skills: multi-agent orchestration (supervisor + specialist agent pattern), memory management for long multi-turn conversations, and retrieval-augmented generation for grounding responses in product documentation. We are standardizing on Model Context Protocol (MCP) for all agent-tool integrations and expect all engineers to be MCP-proficient. You will instrument agents with structured logging and distributed tracing so that support engineers can replay and debug individual agent sessions. Understanding of safety guardrails — input/output filtering, topic restrictions, and escalation logic — is essential.",
+    "captured_at": "2026-04-14T00:00:00Z",
+    "topics": ["multi-agent orchestration", "agent memory", "RAG", "Model Context Protocol (MCP)", "agent observability", "distributed tracing", "safety and guardrails"]
+  },
+  {
+    "title": "AI Research Engineer — Agent Foundations",
+    "kind": "job_posting",
+    "body": "Our research team is looking for an AI Research Engineer to advance our work on reliable agentic systems. You will run systematic evaluations of agent behavior across task distributions, implement red-teaming protocols to surface failure modes, and develop fine-tuning pipelines for creating specialized agent models from larger foundation models. We rely heavily on Model Context Protocol (MCP) for our research scaffolding — all tool interfaces are MCP-based to ensure reproducibility. Strong observability practices are required: every experiment must emit structured traces to our W&B Weave backend for post-hoc analysis and regression detection.",
+    "captured_at": "2026-03-08T00:00:00Z",
+    "topics": ["agent evaluation", "red-teaming", "fine-tuning", "Model Context Protocol (MCP)", "agent observability", "W&B Weave", "multi-agent orchestration"]
+  },
+  {
+    "title": "Principal Engineer — Agentic AI Platform",
+    "kind": "job_posting",
+    "body": "As Principal Engineer for our Agentic AI Platform, you will set technical direction for a team of 8 engineers. You must have breadth across agent architectures (ReAct, Plan-and-Execute, reflection), RAG pipelines, vector database design, and production deployment (cost optimization, autoscaling). Your top priority in 2026 is migrating our proprietary tool-calling protocol to Model Context Protocol (MCP) and establishing MCP governance. You will define observability standards — distributed tracing via OpenTelemetry, LangSmith integration for traces, and evaluation dashboards — so we can detect regressions in agent quality as we scale.",
+    "captured_at": "2026-02-12T00:00:00Z",
+    "topics": ["ReAct", "plan-and-execute", "RAG", "vector databases", "deployment", "Model Context Protocol (MCP)", "agent observability", "OpenTelemetry", "LangSmith", "agent evaluation"]
+  },
+  {
+    "title": "ML Engineer — Generative AI Applications",
+    "kind": "job_posting",
+    "body": "We are building the next generation of generative AI applications and need an ML Engineer with strong foundations in LLMs, prompt engineering, and tool use. A significant part of this role is building and maintaining fine-tuning pipelines for adapting foundation models to our domain-specific tasks — you should be comfortable with SFT, LoRA adapters, and preference optimization (DPO). We are actively adopting Model Context Protocol (MCP) across our agent integrations and expect candidates to ramp up quickly on MCP server development. You will also help establish our agent observability practice, including trace collection, span analysis, and alerting on quality regressions.",
+    "captured_at": "2026-04-22T00:00:00Z",
+    "topics": ["prompt engineering", "tool use", "fine-tuning", "SFT", "LoRA", "DPO", "Model Context Protocol (MCP)", "agent observability"]
+  },
+  {
+    "title": "Senior AI Engineer — Enterprise Agent Products",
+    "kind": "job_posting",
+    "body": "Our enterprise AI team is seeking a Senior AI Engineer to build agentic products for Fortune 500 customers. Requirements include hands-on experience with multi-agent orchestration (CrewAI, LangGraph), memory systems for managing context across long agent sessions, and robust safety guardrails including PII detection, output filtering, and policy enforcement. All agent-tool integrations must conform to Model Context Protocol (MCP). You will implement full observability across agent invocations using distributed tracing, enabling our enterprise customers to audit exactly what their AI systems did and why.",
+    "captured_at": "2026-01-19T00:00:00Z",
+    "topics": ["multi-agent orchestration", "agent memory", "safety and guardrails", "Model Context Protocol (MCP)", "agent observability", "distributed tracing", "tool use"]
+  },
+  {
+    "title": "Founding AI Engineer — Agentic Startup",
+    "kind": "job_posting",
+    "body": "Join a seed-stage startup building autonomous software development agents. As a founding engineer, you'll wear many hats: designing ReAct and Plan-and-Execute agents, building RAG pipelines over codebases, implementing tool-calling integrations via Model Context Protocol (MCP), and establishing our observability stack from scratch. We need someone who can fine-tune open-weight models on code-agent task data to improve task completion rates. You will build our eval harness for measuring agent performance on software engineering benchmarks and implement red-teaming procedures to surface failure modes before production.",
+    "captured_at": "2026-03-30T00:00:00Z",
+    "topics": ["ReAct", "plan-and-execute", "RAG", "tool use", "Model Context Protocol (MCP)", "agent observability", "fine-tuning", "agent evaluation", "red-teaming"]
+  },
+  {
+    "title": "AI Platform Engineer — LLM Tooling",
+    "kind": "job_posting",
+    "body": "We build internal AI platform tooling used by 300+ engineers. We need an AI Platform Engineer with experience in LLM deployment (vLLM, TGI), function calling patterns, and vector database management. A key deliverable is building our internal MCP gateway — a centralized Model Context Protocol (MCP) server registry that routes agent requests to the appropriate tool backends. You will own the observability layer: distributed tracing with OpenTelemetry, cost attribution per agent, and anomaly detection dashboards. Experience fine-tuning models for domain-specific tasks is a plus but not required.",
+    "captured_at": "2026-02-28T00:00:00Z",
+    "topics": ["deployment", "function calling", "vector databases", "Model Context Protocol (MCP)", "agent observability", "distributed tracing", "OpenTelemetry", "fine-tuning"]
+  },
+  {
+    "title": "Senior AI Engineer — Healthcare Agentic Systems",
+    "kind": "job_posting",
+    "body": "Build agentic AI systems for clinical decision support and medical documentation. This role requires expertise in RAG over medical literature, multi-agent coordination between specialist agents (diagnosis, treatment recommendation, documentation), and rigorous safety guardrails including hallucination detection, confidence thresholds, and human-in-the-loop escalation. All tool integrations must be implemented via Model Context Protocol (MCP) to meet our audit requirements. Full distributed tracing and agent observability are non-negotiable for regulatory compliance — every agent action must be logged and traceable.",
+    "captured_at": "2026-04-05T00:00:00Z",
+    "topics": ["RAG", "multi-agent orchestration", "safety and guardrails", "Model Context Protocol (MCP)", "agent observability", "distributed tracing", "compliance"]
+  },
+  {
+    "title": "Staff Engineer — AI Agents and Orchestration",
+    "kind": "job_posting",
+    "body": "Lead technical design and delivery of our AI agent orchestration layer. Responsibilities include architecting Plan-and-Execute workflows for complex, multi-step business processes, designing memory systems for maintaining state across extended agent sessions, and defining our Model Context Protocol (MCP) integration strategy. We require experience with agent evaluation methodologies including automated benchmark suites and human evaluation. You will also drive our fine-tuning program, which focuses on creating specialized tool-use models from open-source foundations using instruction-tuning and preference data from our production traces.",
+    "captured_at": "2026-03-05T00:00:00Z",
+    "topics": ["plan-and-execute", "agent memory", "multi-agent orchestration", "Model Context Protocol (MCP)", "agent evaluation", "fine-tuning", "instruction tuning"]
+  },
+  {
+    "title": "AI Engineer II — RAG and Agentic Search",
+    "kind": "job_posting",
+    "body": "We are building intelligent search and research agents powered by retrieval-augmented generation. The ideal candidate has strong experience with embedding models, chunking strategies, hybrid retrieval (dense + sparse), and re-ranking pipelines. You will integrate our retrieval stack with downstream agents via Model Context Protocol (MCP), enabling agents to query multiple data sources through a unified interface. Observability is critical: you will implement tracing from query to retrieval to generation, with evaluation metrics (RAGAS, ARES) tracked over time to detect drift in retrieval quality.",
+    "captured_at": "2026-02-18T00:00:00Z",
+    "topics": ["RAG", "embedding strategies", "hybrid retrieval", "Model Context Protocol (MCP)", "agent observability", "evaluation metrics", "RAGAS"]
+  },
+  {
+    "title": "Senior Generative AI Engineer — Financial Services",
+    "kind": "job_posting",
+    "body": "Our financial services AI team is seeking a Senior Generative AI Engineer to build compliant, auditable agentic workflows for loan processing and fraud detection. Core technical requirements: multi-agent orchestration with human-in-the-loop checkpoints, safety guardrails enforcing regulatory constraints, and complete distributed tracing for audit trails. We are adopting Model Context Protocol (MCP) as our standard for all agent-tool integrations to enable consistent auditing. Experience fine-tuning models on financial domain data to improve domain accuracy and reduce hallucination rates is a strong differentiator for this role.",
+    "captured_at": "2026-01-25T00:00:00Z",
+    "topics": ["multi-agent orchestration", "safety and guardrails", "distributed tracing", "Model Context Protocol (MCP)", "fine-tuning", "domain adaptation", "compliance"]
+  },
+  {
+    "title": "AI Engineer — Developer Tools",
+    "kind": "job_posting",
+    "body": "Join our developer tools team building AI coding assistants and autonomous code review agents. You will work across the full agentic stack: LLM serving infrastructure, prompt engineering and chain-of-thought optimization, tool-use for code execution and static analysis, and multi-agent pipelines that coordinate review, testing, and documentation agents. Model Context Protocol (MCP) is our standard for exposing development tools to agents — you will write MCP server adapters for our CI/CD systems, code search, and issue trackers. You will instrument agents with distributed tracing to help customers debug their AI workflows.",
+    "captured_at": "2026-04-10T00:00:00Z",
+    "topics": ["prompt engineering", "chain-of-thought", "tool use", "multi-agent orchestration", "Model Context Protocol (MCP)", "distributed tracing", "agent observability"]
+  },
+  {
+    "title": "AI Research Scientist — Agentic Reasoning",
+    "kind": "job_posting",
+    "body": "We are looking for an AI Research Scientist focused on improving the reasoning capabilities of agentic AI systems. You will design and run evaluations of agent reasoning quality, develop fine-tuning datasets for teaching agents to decompose complex tasks, and implement RLHF/RLAIF pipelines to align agent behavior with human preferences. Deep familiarity with Model Context Protocol (MCP) is expected — our research infrastructure is entirely MCP-based, and you will contribute to our open-source MCP tooling. You will also investigate observability techniques for understanding agent internal reasoning, including trace-based post-hoc analysis and uncertainty quantification.",
+    "captured_at": "2026-03-18T00:00:00Z",
+    "topics": ["agent evaluation", "fine-tuning", "RLHF", "RLAIF", "Model Context Protocol (MCP)", "agent observability", "reasoning", "uncertainty quantification"]
+  }
+]

@@ -1,0 +1,44 @@
+name: keep-backend-warm
+
+# Render's free tier sleeps the API after ~15 min idle, so the first live-demo
+# visitor eats a ~30-50s cold start. This pings /health on a schedule to keep it
+# awake. The ping itself also *wakes* a sleeping dyno, so even when GitHub's
+# scheduler drifts, a cold visitor is rare.
+#
+# Caveats (be aware):
+#   - GitHub cron is best-effort and can run 5-15 min late under load, so a tight
+#     15-min sleep window isn't guaranteed covered. If cold starts still bite,
+#     move this to cron-job.org (reliable 10-min) or upgrade off Render free tier.
+#   - GitHub auto-disables scheduled workflows after 60 days of repo inactivity.
+#   - Only runs from the default branch (main).
+
+on:
+  schedule:
+    - cron: "*/10 * * * *"   # every 10 minutes (UTC, best-effort)
+  workflow_dispatch: {}       # manual trigger from the Actions tab
+
+permissions:
+  contents: read
+
+concurrency:
+  group: keep-warm
+  cancel-in-progress: false
+
+jobs:
+  ping:
+    runs-on: ubuntu-latest
+    timeout-minutes: 4
+    steps:
+      - name: Ping backend /health (with cold-start retries)
+        run: |
+          url="https://curricmesh-api.onrender.com/health"
+          for i in 1 2 3 4 5; do
+            code=$(curl -s -o /dev/null -w "%{http_code}" --max-time 70 "$url" || echo "000")
+            echo "attempt $i -> HTTP $code"
+            if [ "$code" = "200" ]; then
+              echo "backend warm"; exit 0
+            fi
+            sleep 10
+          done
+          echo "::warning::backend did not return 200 after 5 attempts"
+          exit 1

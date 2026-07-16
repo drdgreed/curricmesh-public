@@ -1,0 +1,23 @@
+{
+  "passThreshold": 0.7,
+  "capstonePassThreshold": 0.75,
+  "repoBase": "https://example.com/widgets-101",
+  "projects": [
+    {
+      "id": "wp1",
+      "title": "Build a Synthetic Widget",
+      "milestone": "w1",
+      "tier": "all_access",
+      "isCapstone": false,
+      "tagline": "Placeholder tagline: assemble and pretend-test a two-part synthetic widget.",
+      "brief": "Placeholder brief. Using the fictional parts from this course, assemble a synthetic widget, run the imaginary wobble test, and write a short (made-up) report describing the result. No real deliverable is expected — this is obviously-synthetic placeholder content.",
+      "scaffoldUrl": "https://example.com/widgets-101/tree/main/projects/wp1-synthetic-widget",
+      "solutionBranch": "wp1-solution",
+      "rubric": [
+        { "key": "assembly", "label": "Assembly", "description": "Placeholder: the fictional parts are put together in the correct order." },
+        { "key": "testing", "label": "Testing", "description": "Placeholder: the imaginary wobble test is run and a result recorded." },
+        { "key": "report", "label": "Report", "description": "Placeholder: a short synthetic write-up describes the outcome." }
+      ]
+    }
+  ]
+}

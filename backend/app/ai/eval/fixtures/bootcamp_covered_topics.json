@@ -1,0 +1,20 @@
+{
+  "_meta": {
+    "purpose": "Synthetic list of topics the 'Agentic AI Architecture in Production' bootcamp DOES cover. Used by the C4 eval harness as the curriculum's covered surface when measuring gap-detection recall against PLANTED_GAPS.json. Deliberately EXCLUDES MCP, agent observability / distributed tracing, and fine-tuning / RLHF so the three planted gaps are genuinely uncovered.",
+    "note": "SYNTHETIC / portfolio demo artifact."
+  },
+  "covered_topics": [
+    "Prompt Engineering",
+    "Function Calling & Tool Use",
+    "Retrieval-Augmented Generation",
+    "Vector Databases & Embeddings",
+    "Multi-Agent Orchestration",
+    "ReAct & Plan-and-Execute Agent Architectures",
+    "Agent Memory & Context Management",
+    "Offline Evaluation & Red-Teaming",
+    "Guardrails & Safety Filtering",
+    "Structured Outputs & JSON Schema",
+    "Cost & Latency Optimization",
+    "Deployment & API Integration"
+  ]
+}

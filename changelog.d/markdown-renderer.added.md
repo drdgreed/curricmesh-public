@@ -1,0 +1,1 @@
+- **Lesson content renders full Markdown** — `AssetContent` now renders `###` sub-headings and inline `**bold**` / `` `code` `` (previously shown as literal characters), so AI-generated lesson bodies look properly formatted in the Player.

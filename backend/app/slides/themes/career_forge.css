@@ -1,0 +1,171 @@
+/* @theme career-forge */
+
+/*
+ * Career-Forge slide theme — the LOCKED default deck theme for CurricMesh.
+ *
+ * Ported verbatim from CareerFoundry's Release Standard v1.0.0
+ * (slide_system_standard/RELEASE_STANDARD_v1.0.0.md, theme v1.1 + code-block v3).
+ * Any change to the locked values below is a theme version bump — supersede,
+ * don't edit in place. Marp registers this via `--theme-set`; a deck opts in
+ * with `theme: career-forge` in its frontmatter.
+ *
+ * D-1 seam: per-tenant themes override this default later (see
+ * app/slides/themes/__init__.py::get_deck_theme). For now every tenant resolves
+ * to career-forge.
+ */
+
+@import 'default';
+
+/* === Career-Forge slide template v1.1 === */
+/* v1.1 fixes: tighter body font, code contrast, safe-area padding so footer never overlaps content. */
+section {
+  font-family: 'Calibri', 'Trebuchet MS', sans-serif;
+  font-size: 22px;
+  line-height: 1.4;
+  color: #1F1D17;
+  background: #F7F6F2;
+  padding: 50px 60px 70px 60px;   /* extra bottom padding keeps footer clear */
+  overflow: hidden;
+}
+/* Inline code: punchy contrast for light slides */
+section code {
+  font-family: 'JetBrains Mono', 'Fira Mono', 'Consolas', 'Courier New', monospace;
+  font-size: 0.9em;
+  background: #07091a;
+  color: #FFFFFF;
+  padding: 2px 7px;
+  border-radius: 4px;
+  font-weight: 600;
+}
+/* Fenced code blocks: deep navy slab, pure-white text, heavy weight for projector legibility.
+   v3 standard — matches the readability of the v1.0.0 deck per user feedback 2026-06-13. */
+section pre {
+  background: #07091a;
+  border: 1px solid #1f2a4a;
+  border-radius: 8px;
+  padding: 26px 30px;
+  margin: 12px 0;
+  overflow: hidden;
+  box-shadow: 0 1px 0 rgba(255,255,255,0.06) inset, 0 0 0 2px rgba(0,0,0,0.06);
+}
+/* Disable Marp auto-scaling on code blocks — it produces a ghosted double-render at PDF
+   rasterization when content is taller than ~12 lines. Keep code legible at full size; if a
+   block overflows, shorten it instead of letting Marp scale it. */
+section pre[is="marp-pre"] {
+  transform: none !important;
+  --marpit-pre-scale: 1 !important;
+}
+section pre code {
+  background: transparent;
+  color: #FFFFFF;
+  font-family: 'JetBrains Mono', 'Fira Mono', 'Consolas', 'Courier New', monospace;
+  font-size: 20px;
+  line-height: 1.45;
+  font-weight: 700;
+  padding: 0;
+}
+/* Highlight.js token colors — saturated, bold, projector-safe (v3 brighter palette) */
+section pre code .hljs-keyword,
+section pre code .hljs-built_in,
+section pre code .hljs-literal { color: #7FF0FF; font-weight: 800; }
+section pre code .hljs-string,
+section pre code .hljs-meta-string { color: #FFE066; font-weight: 700; }
+section pre code .hljs-comment { color: #CFD7F0; font-style: italic; font-weight: 600; }
+section pre code .hljs-number,
+section pre code .hljs-symbol { color: #FFA8A8; font-weight: 800; }
+section pre code .hljs-title,
+section pre code .hljs-function .hljs-title,
+section pre code .hljs-class .hljs-title { color: #B0FFC8; font-weight: 800; }
+section pre code .hljs-params { color: #FFFFFF; font-weight: 700; }
+section pre code .hljs-attr,
+section pre code .hljs-variable,
+section pre code .hljs-property { color: #D7BCFF; font-weight: 700; }
+section pre code .hljs-type { color: #FFC890; font-weight: 800; }
+section pre code .hljs-meta { color: #CFD7F0; font-weight: 600; }
+/* Headings */
+section h1 { font-size: 38px; color: #01696F; margin: 0 0 16px 0; }
+section h2 { font-size: 28px; color: #0C4E54; margin: 0 0 14px 0; line-height: 1.2; }
+section h3 { font-size: 22px; color: #0C4E54; margin: 12px 0 8px 0; }
+/* Tables: smaller font, tighter cells, no horizontal overflow */
+section table {
+  font-size: 18px;
+  line-height: 1.3;
+  border-collapse: collapse;
+  width: 100%;
+  margin: 8px 0;
+}
+section th, section td {
+  border: 1px solid #D6D2C4;
+  padding: 6px 10px;
+  text-align: left;
+  vertical-align: top;
+}
+section th { background: #EFEBDC; color: #0C4E54; }
+/* Lists tighten */
+section ul, section ol { margin: 6px 0 6px 24px; padding: 0; }
+section li { margin: 3px 0; }
+/* Blockquotes */
+section blockquote {
+  border-left: 3px solid #0C4E54;
+  margin: 8px 0;
+  padding: 4px 0 4px 14px;
+  color: #4A4636;
+  font-style: italic;
+  font-size: 0.95em;
+}
+/* Callouts */
+section .callout-concept  { border-left: 4px solid #01696F; padding-left: 1em; }
+section .callout-gotcha   { border-left: 4px solid #D19900; padding-left: 1em; }
+section .callout-anti     { border-left: 4px solid #A13544; padding-left: 1em; }
+section .callout-prod     { border-left: 4px solid #437A22; padding-left: 1em; }
+section .callout-hiring   { border-left: 4px solid #7A39BB; padding-left: 1em; }
+/* Header & footer: smaller, faded, won't collide visually */
+section header {
+  font-size: 14px;
+  color: #6B6452;
+  top: 18px;
+}
+section footer {
+  font-size: 13px;
+  color: #8A8472;
+  bottom: 18px;
+}
+/* Pagination */
+section::after {
+  font-size: 13px;
+  color: #8A8472;
+}
+/* Dense-slide class for code-heavy slides — keeps code legible at projector range */
+section.dense { font-size: 19px; padding: 36px 52px 58px 52px; }
+section.dense pre code { font-size: 18px; line-height: 1.4; font-weight: 500; }
+section.dense h2 { font-size: 26px; }
+/* Diagram images: fit to slide without overflow */
+section img {
+  display: block;
+  margin: 8px auto;
+  max-width: 96%;
+  max-height: 560px;
+  height: auto;
+  object-fit: contain;
+}
+section.dense img {
+  max-height: 460px;
+}
+/* Wide-diagram class — for slides where the diagram is the focal point */
+section.wide-diagram { padding: 44px 32px 56px 32px; }
+section.wide-diagram h2 { margin-bottom: 6px; font-size: 24px; }
+section.wide-diagram p { margin: 4px 0 8px 0; font-size: 17px; }
+section.wide-diagram img {
+  max-width: 100%;
+  max-height: 560px;
+  display: block;
+  margin: 0 auto;
+}
+/* Title-slide class — for slide 1 hero */
+section.title {
+  background: linear-gradient(135deg, #01696F 0%, #0C4E54 100%);
+  color: #F7F6F2;
+  padding: 80px 80px;
+}
+section.title h1 { color: #F7F6F2; font-size: 54px; }
+section.title h2 { color: #D4C99E; font-size: 28px; }

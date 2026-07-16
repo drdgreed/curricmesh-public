@@ -1,0 +1,20 @@
+{
+  "_meta": {
+    "purpose": "Synthetic list of topics the 'Cloud Platform Engineering' program DOES cover. Used by the eval harness as curriculum-2's covered surface when measuring gap-detection recall against this curriculum's planted_gaps.json. Deliberately EXCLUDES eBPF-based observability, Platform Engineering / Internal Developer Platforms (IDP), and FinOps / cloud cost governance so the three planted gaps are genuinely uncovered.",
+    "note": "SYNTHETIC / portfolio demo artifact."
+  },
+  "covered_topics": [
+    "Kubernetes Orchestration & Workload Scheduling",
+    "Terraform & Infrastructure as Code",
+    "CI/CD Pipelines & Release Automation",
+    "Container Image Security & Supply Chain",
+    "Cloud Networking & Load Balancing",
+    "Service Mesh Basics (Istio/Linkerd)",
+    "GitOps & Declarative Deployments (ArgoCD/Flux)",
+    "Cloud Cost Basics & Resource Tagging",
+    "Helm & Kubernetes Packaging",
+    "Secrets Management & IAM",
+    "Autoscaling & Capacity Planning",
+    "Logging & Metrics with Prometheus/Grafana"
+  ]
+}

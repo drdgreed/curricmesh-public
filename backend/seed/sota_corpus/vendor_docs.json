@@ -1,0 +1,142 @@
+[
+  {
+    "title": "LangGraph 0.4 Release Notes — Observability and MCP Support",
+    "kind": "vendor_doc",
+    "body": "LangGraph 0.4 ships two headline features. First, native Model Context Protocol (MCP) support: LangGraph nodes can now declare MCP-compatible tool schemas, and the executor automatically negotiates capability discovery with any MCP-compliant server. This eliminates bespoke integration code for each tool. Second, deep observability integration: every node execution emits OpenTelemetry spans with standardized attribute keys (langgraph.node.name, langgraph.run.id, langgraph.token.input, langgraph.token.output). Trace data flows directly to LangSmith, Jaeger, or any OTLP-compatible backend. Developers can now visualize full agent execution trees, identify bottlenecks, and replay failed runs with full fidelity. The release also improves the Plan-and-Execute executor with better parallelism and adds a new fine-tuning export format for generating task-trace datasets from production runs.",
+    "captured_at": "2026-02-01T00:00:00Z",
+    "topics": ["multi-agent orchestration", "Model Context Protocol (MCP)", "agent observability", "OpenTelemetry", "LangSmith", "plan-and-execute", "fine-tuning"]
+  },
+  {
+    "title": "Anthropic Model Context Protocol (MCP) 1.2 Specification",
+    "kind": "vendor_doc",
+    "body": "Model Context Protocol (MCP) 1.2 introduces structured capability negotiation, streaming tool responses, and resource subscription primitives. MCP defines a standardized JSON-RPC-based wire protocol for agent-to-tool communication, replacing ad-hoc function-calling schemas with a discoverable, versioned interface. In 1.2, servers declare their capabilities (tools, resources, prompts) in a machine-readable manifest that clients can query before invocation. The new streaming response format allows long-running tools to emit incremental results, preventing agent timeouts on expensive operations. MCP 1.2 also formalizes the resource subscription model, enabling agents to receive push notifications when monitored resources change. Reference implementations are available for Python, TypeScript, Java, and Rust. Observability hooks are built-in: every MCP transaction emits an OpenTelemetry span, giving operators end-to-end traces from agent decision through tool execution.",
+    "captured_at": "2026-01-15T00:00:00Z",
+    "topics": ["Model Context Protocol (MCP)", "agent observability", "OpenTelemetry", "tool use", "function calling"]
+  },
+  {
+    "title": "Weaviate 1.26 Release Notes — Agentic Query Patterns",
+    "kind": "vendor_doc",
+    "body": "Weaviate 1.26 focuses on agentic query patterns and production reliability. New features include: an MCP-native query interface that exposes Weaviate's hybrid search, BM25+vector fusion, and generative search capabilities as Model Context Protocol (MCP) tools, allowing any MCP-compatible agent to query Weaviate without bespoke integration. The release also adds a query trace endpoint that returns OpenTelemetry-compatible trace data for every retrieval operation, enabling developers to correlate retrieval quality with downstream generation quality in their observability stack. HNSW index performance is improved by 18% on recall@10 benchmarks. The new async client supports streaming results for large-scale agentic retrieval workflows.",
+    "captured_at": "2026-03-10T00:00:00Z",
+    "topics": ["vector databases", "embedding strategies", "Model Context Protocol (MCP)", "agent observability", "OpenTelemetry", "RAG", "hybrid retrieval"]
+  },
+  {
+    "title": "LangSmith 2.0 — Agent Tracing and Evaluation Platform",
+    "kind": "vendor_doc",
+    "body": "LangSmith 2.0 is a complete rewrite focused on production agent observability at scale. The core offering is a distributed tracing backend that ingests OpenTelemetry spans from any LLM framework and reconstructs the full execution tree of complex multi-agent systems. New capabilities include: automated anomaly detection on agent traces (detecting infinite loops, unexpected tool call patterns, and cost spikes), dataset-driven evaluations that run on-demand or on a schedule to detect capability regressions, and a playground for replaying any production trace with modified prompts or model versions. LangSmith 2.0 also introduces a fine-tuning export workflow: curate traces from production, annotate with quality labels, and export to a fine-tuning dataset format compatible with OpenAI, Anthropic, and open-source training frameworks. The MCP integration allows LangSmith to automatically capture tool metadata from any MCP-compliant tool call.",
+    "captured_at": "2026-02-25T00:00:00Z",
+    "topics": ["agent observability", "distributed tracing", "OpenTelemetry", "agent evaluation", "fine-tuning", "Model Context Protocol (MCP)", "multi-agent orchestration"]
+  },
+  {
+    "title": "CrewAI 0.9 Release — Enterprise Orchestration Features",
+    "kind": "vendor_doc",
+    "body": "CrewAI 0.9 delivers enterprise-grade multi-agent orchestration improvements. The crew execution engine now supports hierarchical supervisor-worker patterns with configurable delegation strategies and automatic load balancing across worker agents. Built-in memory management allows crews to maintain shared long-term knowledge stores across sessions using pluggable backends (Redis, Postgres, Weaviate). This release fully adopts Model Context Protocol (MCP) for tool integrations: each CrewAI tool wrapper is now an MCP server, enabling any external MCP client to consume CrewAI crews as composable agents. Observability is improved with native OpenTelemetry instrumentation — every crew run, task delegation, and tool call emits spans to your configured tracing backend. The new Crew Debugger UI integrates with LangSmith 2.0 for visual trace replay.",
+    "captured_at": "2026-01-30T00:00:00Z",
+    "topics": ["multi-agent orchestration", "agent memory", "Model Context Protocol (MCP)", "agent observability", "OpenTelemetry", "LangSmith", "tool use"]
+  },
+  {
+    "title": "OpenAI Assistants API v3 — Fine-Tuning and Observability Guide",
+    "kind": "vendor_doc",
+    "body": "The OpenAI Assistants API v3 developer guide covers two major additions: fine-tuning integration and production observability. Fine-tuning: developers can now directly fine-tune GPT-4o-mini on assistant run traces captured from production, creating domain-specialized assistant models with 30-40% improved task accuracy on narrow verticals. The fine-tuning pipeline supports LoRA adapters for parameter-efficient adaptation and ships with an automatic dataset construction workflow that converts run traces to (instruction, response) pairs. Observability: the v3 API emits full OpenTelemetry traces for every assistant run, including tool call spans, retrieval spans, and token usage attributes. These traces integrate with any OTLP backend and are also surfaced in the new OpenAI platform observability dashboard. Model Context Protocol (MCP) support allows assistants to call any MCP-compatible external tool, expanding the ecosystem beyond built-in tools.",
+    "captured_at": "2026-03-20T00:00:00Z",
+    "topics": ["fine-tuning", "LoRA", "agent observability", "OpenTelemetry", "Model Context Protocol (MCP)", "tool use", "RAG"]
+  },
+  {
+    "title": "Arize Phoenix 3.0 — LLM Observability and Agent Evaluation",
+    "kind": "vendor_doc",
+    "body": "Arize Phoenix 3.0 is our most comprehensive release for LLM and agent observability. This version ships with full OpenTelemetry trace ingestion, supporting all major agent frameworks (LangChain, LangGraph, CrewAI, AutoGen, and raw OpenAI SDK calls). Phoenix 3.0 introduces automatic evaluation on sampled traces: using LLM-as-judge scoring, it continuously evaluates retrieved context relevance, response faithfulness, and tool use correctness, surfacing quality regressions before they impact users. New in this version: MCP-aware tracing that automatically enriches spans with metadata from Model Context Protocol (MCP) tool manifests, giving operators rich context about which tools were called and with what capabilities. The fine-tuning data curator integrates directly with the trace store: annotate traces in the Phoenix UI and export curated datasets to Hugging Face or cloud fine-tuning providers.",
+    "captured_at": "2026-02-10T00:00:00Z",
+    "topics": ["agent observability", "distributed tracing", "OpenTelemetry", "agent evaluation", "Model Context Protocol (MCP)", "fine-tuning", "RAG", "LLM monitoring"]
+  },
+  {
+    "title": "Pinecone Serverless 2.0 — Production RAG at Scale",
+    "kind": "vendor_doc",
+    "body": "Pinecone Serverless 2.0 removes capacity management overhead and improves the production RAG developer experience. Key improvements: zero-config autoscaling handles 100x query spikes without pre-provisioning; new sparse-dense hybrid index enables BM25 + semantic retrieval in a single query; and native MCP (Model Context Protocol) server mode exposes your Pinecone indexes as MCP-compatible resources that any agent can query without custom integration code. The 2.0 SDK adds retrieval tracing hooks that emit OpenTelemetry spans for every query, enabling observability pipelines to correlate retrieval latency with downstream generation quality. New metadata filtering capabilities and TTL-based document expiry support more sophisticated RAG architectures including time-aware retrieval.",
+    "captured_at": "2026-04-05T00:00:00Z",
+    "topics": ["vector databases", "RAG", "hybrid retrieval", "embedding strategies", "Model Context Protocol (MCP)", "agent observability", "OpenTelemetry"]
+  },
+  {
+    "title": "Hugging Face TRL 0.12 — RLHF and DPO Fine-Tuning for Agents",
+    "kind": "vendor_doc",
+    "body": "TRL (Transformer Reinforcement Learning) 0.12 ships major improvements to fine-tuning agentic models. The new AgentSFTTrainer class handles trajectory-formatted datasets — sequences of (observation, thought, action, reward) tuples — enabling supervised fine-tuning of agent behavior from rollout data. The DPOTrainer now supports multi-turn preference data, crucial for training agents to prefer shorter and more reliable tool-use patterns. New in 0.12: GRPOTrainer implements Group Relative Policy Optimization for efficient RLHF on reasoning tasks without a separate critic model. All trainers integrate with the Hugging Face Observability Toolkit, emitting training metrics and sample outputs to W&B or any OTLP-compatible backend. Documentation updated with an end-to-end recipe for fine-tuning LLaMA-3-8B on MCP tool-use traces.",
+    "captured_at": "2026-01-20T00:00:00Z",
+    "topics": ["fine-tuning", "RLHF", "DPO", "SFT", "agent evaluation", "Model Context Protocol (MCP)", "agent observability", "LoRA"]
+  },
+  {
+    "title": "W&B Weave 1.0 — Trace-Centric Evaluation for Agentic AI",
+    "kind": "vendor_doc",
+    "body": "W&B Weave 1.0 is a production-ready tracing and evaluation platform purpose-built for agentic AI systems. Weave captures the full call graph of any Python function decorated with @weave.op(), reconstructing complete agent execution trees with zero boilerplate. Evaluation primitives allow developers to define scorers that run on sampled traces — measuring tool selection accuracy, answer faithfulness, and task completion — and track scores over time to catch regressions. Weave 1.0 ships with a Model Context Protocol (MCP) tracer that automatically instruments MCP client calls, giving you built-in observability for any MCP-based agent stack without manual instrumentation. The integration with Hugging Face TRL closes the loop from observability to fine-tuning: export scored traces directly to a TRL-compatible dataset format.",
+    "captured_at": "2026-03-01T00:00:00Z",
+    "topics": ["agent observability", "distributed tracing", "agent evaluation", "Model Context Protocol (MCP)", "fine-tuning", "multi-agent orchestration"]
+  },
+  {
+    "title": "AutoGen 0.6 — Conversational Agents and Safety Layers",
+    "kind": "vendor_doc",
+    "body": "AutoGen 0.6 adds enterprise-grade safety layers and a new safety guardrail framework for conversational multi-agent systems. The GuardrailsManager middleware intercepts all inter-agent messages and applies configurable policies: PII detection and redaction, topic restriction lists, output content filters, and rate limiting for tool calls. Automatic escalation to a human-in-the-loop proxy agent is triggered when guardrails fire. AutoGen 0.6 also formalizes MCP (Model Context Protocol) as its standard tool interface, deprecating the legacy function-calling wrapper in favor of MCP server adapters. New observability hooks emit structured traces using OpenTelemetry for every agent message exchange, tool invocation, and guardrail event.",
+    "captured_at": "2026-02-15T00:00:00Z",
+    "topics": ["multi-agent orchestration", "safety and guardrails", "Model Context Protocol (MCP)", "agent observability", "OpenTelemetry", "tool use"]
+  },
+  {
+    "title": "Guardrails AI 0.5 — Agent Output Validation Framework",
+    "kind": "vendor_doc",
+    "body": "Guardrails AI 0.5 is a structured output validation and safety framework for LLM-powered applications and agents. This release introduces RAIL schema validation for agent action plans — ensuring agents only propose valid, allowed action sequences before execution. New validators include: entity recognition for PII detection, toxicity classification using fine-tuned classifiers, JSON schema validation for structured tool inputs, and factual consistency scoring using retrieval-based verification. Guardrails AI 0.5 integrates natively with Model Context Protocol (MCP): RAIL schemas can be attached to MCP tool declarations, and validation runs automatically before any MCP tool call is executed. Observability integration emits guardrail evaluation spans via OpenTelemetry, making it easy to monitor guardrail hit rates in your existing tracing stack.",
+    "captured_at": "2026-01-08T00:00:00Z",
+    "topics": ["safety and guardrails", "structured output", "Model Context Protocol (MCP)", "agent observability", "OpenTelemetry", "fine-tuning"]
+  },
+  {
+    "title": "Mistral AI Fine-Tuning API — Agentic Task Specialization Guide",
+    "kind": "vendor_doc",
+    "body": "The Mistral AI Fine-Tuning API enables developers to create domain-specialized versions of Mistral-7B and Mistral-22B for agentic tasks. This guide covers the end-to-end fine-tuning workflow: dataset preparation from production agent traces, SFT (supervised fine-tuning) with LoRA adapters for parameter-efficient training, DPO (Direct Preference Optimization) for aligning agent behavior with human preferences, and evaluation of fine-tuned models against your task benchmarks. Best practices for building fine-tuning datasets from multi-step agent trajectories are included, with specific guidance on how to filter high-quality traces using your observability data. The fine-tuned models expose a standard function-calling interface and support Model Context Protocol (MCP) tool schemas natively.",
+    "captured_at": "2026-04-15T00:00:00Z",
+    "topics": ["fine-tuning", "SFT", "LoRA", "DPO", "RLHF", "agent evaluation", "Model Context Protocol (MCP)", "function calling", "agent observability"]
+  },
+  {
+    "title": "LlamaIndex 0.12 — Production RAG and Agent Workflows",
+    "kind": "vendor_doc",
+    "body": "LlamaIndex 0.12 advances both the RAG and agent workflow capabilities of the framework. On the RAG side: new automated pipeline optimization selects optimal chunking strategies, embedding models, and retrieval configurations based on your data and query distribution; RAPTOR and HyDE advanced retrieval patterns are now first-class citizens. On the agent side: the new AgentWorkflow abstraction supports complex multi-step Plan-and-Execute patterns with automatic tool selection and retry logic. This release adopts Model Context Protocol (MCP) as the primary interface for exposing LlamaIndex query engines and tools to external agents. Full OpenTelemetry instrumentation is included out of the box, with integration guides for LangSmith, Arize Phoenix, and W&B Weave.",
+    "captured_at": "2026-03-25T00:00:00Z",
+    "topics": ["RAG", "embedding strategies", "plan-and-execute", "Model Context Protocol (MCP)", "agent observability", "OpenTelemetry", "vector databases", "tool use"]
+  },
+  {
+    "title": "vLLM 0.7 — High-Throughput LLM Serving for Agents",
+    "kind": "vendor_doc",
+    "body": "vLLM 0.7 focuses on production serving requirements for agentic workloads. Agentic systems generate highly variable request patterns — short tool-call prompts interleaved with long context windows for memory-augmented agents. vLLM 0.7 addresses this with adaptive chunked prefill, which reduces time-to-first-token for tool responses by 40%, and speculative decoding improvements that accelerate chain-of-thought generation. New: vLLM 0.7 ships an MCP (Model Context Protocol) proxy layer that exposes your hosted model as an MCP-compatible resource, allowing any MCP agent client to call your vLLM deployment using the standard protocol rather than custom API wrappers. Built-in OpenTelemetry metrics and traces cover token throughput, queue depth, TTFT, and ITL, feeding your agent observability dashboards.",
+    "captured_at": "2026-02-08T00:00:00Z",
+    "topics": ["deployment", "latency optimization", "chain-of-thought", "Model Context Protocol (MCP)", "agent observability", "OpenTelemetry", "agent memory"]
+  },
+  {
+    "title": "OpenTelemetry GenAI Semantic Conventions 1.0 — Agent Tracing Standards",
+    "kind": "vendor_doc",
+    "body": "The OpenTelemetry GenAI Semantic Conventions 1.0 specification establishes standardized attribute keys and span names for tracing LLM and agent workloads. Key conventions include: gen_ai.request.model, gen_ai.request.max_tokens, gen_ai.response.finish_reason, gen_ai.usage.input_tokens, and gen_ai.usage.output_tokens for LLM spans; agent.run.id, agent.step.type, agent.tool.name for agent execution spans; and retrieval.query.text, retrieval.document.score for RAG spans. All major LLM frameworks (LangChain, LangGraph, LlamaIndex, AutoGen) have committed to adopting these conventions in their observability instrumentation. The Model Context Protocol (MCP) specification references OTel GenAI conventions for its built-in tracing hooks, ensuring that MCP tool calls produce standards-compliant spans in any OTel backend.",
+    "captured_at": "2026-01-05T00:00:00Z",
+    "topics": ["agent observability", "distributed tracing", "OpenTelemetry", "Model Context Protocol (MCP)", "RAG", "deployment"]
+  },
+  {
+    "title": "Cohere Command R+ Fine-Tuning Guide — RAG and Tool Use",
+    "kind": "vendor_doc",
+    "body": "Cohere's Command R+ fine-tuning guide covers specialized fine-tuning recipes for RAG and tool-use tasks. Fine-tuning Command R+ for RAG: dataset construction from document-grounded QA pairs, LoRA fine-tuning to improve citation accuracy and reduce hallucination in grounded generation. Fine-tuning for tool use: building instruction-following datasets from tool-call traces, DPO to teach the model to prefer precise, minimal tool invocations over verbose ones. The guide includes a section on fine-tuning for Model Context Protocol (MCP) compatibility — training the model to produce well-formed MCP request schemas given natural language instructions. Evaluation: after fine-tuning, assess performance on RAGAS (RAG) and τ-bench (tool use) benchmarks and track metrics over time using your observability stack.",
+    "captured_at": "2026-04-20T00:00:00Z",
+    "topics": ["fine-tuning", "RAG", "tool use", "LoRA", "DPO", "agent evaluation", "Model Context Protocol (MCP)", "agent observability"]
+  },
+  {
+    "title": "Dify 2.0 — No-Code Agentic Workflow Builder",
+    "kind": "vendor_doc",
+    "body": "Dify 2.0 introduces a visual workflow builder for composing agentic AI applications without code. Users can assemble multi-agent pipelines by connecting LLM nodes, tool nodes, retrieval nodes, and conditional branches on a canvas. Enterprise features include: role-based access control for workflow authoring, audit logging of all agent actions, and safety guardrail policies that can be applied globally or per-workflow. Dify 2.0 adopts Model Context Protocol (MCP) for all external tool integrations: the MCP Tool Marketplace allows organizations to publish internal tools as MCP servers and consume them in Dify workflows. Full observability is provided via an embedded OpenTelemetry exporter and deep integration with LangSmith for trace exploration and evaluation.",
+    "captured_at": "2026-03-15T00:00:00Z",
+    "topics": ["multi-agent orchestration", "tool use", "safety and guardrails", "Model Context Protocol (MCP)", "agent observability", "OpenTelemetry", "LangSmith"]
+  },
+  {
+    "title": "Semantic Kernel 2.0 — .NET and Python Agent SDK",
+    "kind": "vendor_doc",
+    "body": "Semantic Kernel 2.0 is a major release bringing the agent SDK to production maturity for enterprise .NET and Python applications. Key additions: a fully redesigned Process framework for orchestrating multi-step agent workflows with durable state; a Planner that generates Plan-and-Execute sequences from natural language goals; and a new Memory module with vector store backends (Azure AI Search, Weaviate, Qdrant) for long-context agent memory. Model Context Protocol (MCP) is now the canonical way to expose Semantic Kernel plugins to external agents and to consume external tools inside Semantic Kernel agents. Observability is comprehensive: all kernel operations emit OpenTelemetry traces and metrics, with pre-built dashboards for Prometheus/Grafana and integration with Azure Monitor. The new Evaluation module supports automated agent quality scoring against golden datasets.",
+    "captured_at": "2026-02-22T00:00:00Z",
+    "topics": ["multi-agent orchestration", "plan-and-execute", "agent memory", "vector databases", "Model Context Protocol (MCP)", "agent observability", "OpenTelemetry", "agent evaluation"]
+  },
+  {
+    "title": "Weights & Biases Model Registry — LLM Fine-Tuning Lifecycle Management",
+    "kind": "vendor_doc",
+    "body": "The W&B Model Registry now provides end-to-end lifecycle management for fine-tuned LLM artifacts. Teams can track every fine-tuning run with full hyperparameter logging, training curve visualization, and evaluation benchmark results. The new LLM Eval integration automatically benchmarks fine-tuned models on agent-specific tasks (tool selection accuracy, instruction following, multi-step task completion) before promoting them to production. W&B Weave integration closes the loop: capture traces from your fine-tuned model in production, curate high-quality examples, and feed them back into the fine-tuning pipeline. The Model Registry supports Model Context Protocol (MCP) model cards — structured metadata that MCP clients can query to understand a model's capabilities, fine-tuning lineage, and evaluation scores before invoking it. Observability dashboards show per-model quality metrics over time, enabling regression detection across model versions.",
+    "captured_at": "2026-04-08T00:00:00Z",
+    "topics": ["fine-tuning", "RLHF", "agent evaluation", "Model Context Protocol (MCP)", "agent observability", "deployment", "LLM monitoring"]
+  }
+]

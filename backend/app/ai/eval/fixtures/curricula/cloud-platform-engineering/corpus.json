@@ -1,0 +1,72 @@
+[
+  {
+    "title": "Senior Platform Engineer — Developer Experience",
+    "kind": "job_posting",
+    "body": "We are hiring a Senior Platform Engineer to build and operate our Internal Developer Platform (IDP). You will own our Backstage developer portal, golden paths, and self-service infrastructure templates so product teams can ship without filing tickets. Platform engineering is the core of this role: you will treat the platform as a product with paved roads built on Kubernetes, Terraform, and GitOps. Strong candidates have deep experience with eBPF-based observability — using Cilium and kernel-level tracing to see network flows and syscalls without sidecars. Familiarity with FinOps and cost governance is a plus as we roll out showback to teams."
+  },
+  {
+    "title": "Staff Cloud Platform Engineer — Reliability",
+    "kind": "job_posting",
+    "body": "Join our platform engineering org to build the internal developer platform that powers 200+ services. You will design self-service abstractions on top of Kubernetes and Terraform, integrate Backstage as the developer portal, and define golden paths for CI/CD. Production observability here is built on eBPF: we run Cilium for kernel-level tracing and zero-instrumentation network telemetry. You will partner with our FinOps team on cost optimization, chargeback, and budget guardrails so the IDP stays cost-aware by default."
+  },
+  {
+    "title": "Cilium / eBPF Observability — Vendor Technical Overview",
+    "kind": "vendor_doc",
+    "body": "This document describes our eBPF observability platform built on Cilium. By attaching eBPF programs to kernel hooks we provide kernel-level tracing of network, security, and runtime events with no application instrumentation. Platform engineering teams adopt this as part of their internal developer platform (IDP) so that golden paths ship with deep observability built in. The Hubble UI surfaces service maps and flow logs derived directly from eBPF data. The Hubble service map renders dependencies across namespaces in real time."
+  },
+  {
+    "title": "Backstage Internal Developer Platform — Vendor Guide",
+    "kind": "vendor_doc",
+    "body": "Backstage is the open-source framework for building an Internal Developer Platform (IDP). This guide covers how platform engineering teams model software catalogs, scaffold golden-path templates, and expose self-service actions. A mature IDP integrates CI/CD, Kubernetes deployments, and observability. We recommend wiring eBPF-based observability (Cilium, kernel-level tracing) into every scaffolded service so reliability signals are available from day one. Platform engineering as a discipline focuses on developer experience and treating the platform as a product."
+  },
+  {
+    "title": "Platform Engineer — Kubernetes & Developer Tooling",
+    "kind": "job_posting",
+    "body": "Our platform engineering team is expanding its internal developer platform (IDP). You will extend our Backstage portal, maintain Terraform modules, and harden our Kubernetes multi-tenant clusters. Observability is non-negotiable: we standardized on eBPF observability with Cilium for kernel-level tracing across all clusters, replacing brittle sidecar-based approaches. You will also help mature our FinOps practice — building cost governance dashboards, showback reports, and rightsizing automation so teams understand their cloud spend."
+  },
+  {
+    "title": "DevOps / Platform Engineer — GitOps Focus",
+    "kind": "job_posting",
+    "body": "We need a Platform Engineer to advance our GitOps workflows and internal developer platform (IDP). Responsibilities include maintaining ArgoCD pipelines, Terraform infrastructure, and a Backstage developer portal. The role is squarely platform engineering: building paved roads so application teams self-serve. You will operate our eBPF observability stack (Cilium, kernel-level tracing) and ensure every new service gets network and runtime visibility automatically. Cloud networking and service mesh experience round out the role."
+  },
+  {
+    "title": "Infrastructure Platform Engineer — Multi-Cloud",
+    "kind": "job_posting",
+    "body": "Seeking an Infrastructure Platform Engineer to build our internal developer platform (IDP) across AWS and GCP. You will write Terraform, manage Kubernetes, and curate Backstage golden paths. Platform engineering culture — self-service, paved roads, platform-as-a-product — defines how we work. Our observability strategy is eBPF-first: Cilium provides kernel-level tracing and Hubble flow visibility without per-app agents. You will collaborate with finance on FinOps initiatives including cost governance, chargeback models, and idle-resource reclamation."
+  },
+  {
+    "title": "eBPF for Production Observability — Vendor Whitepaper",
+    "kind": "vendor_doc",
+    "body": "eBPF has become the foundation for modern production observability. This whitepaper explains how eBPF programs run safely in the kernel to capture network, security, and performance telemetry — kernel-level tracing without code changes. Cilium leverages eBPF for networking and observability in Kubernetes. We show how platform engineering teams embed eBPF observability into their internal developer platform (IDP) so every workload is observable by default. A short appendix covers safe eBPF program verification and the kernel verifier."
+  },
+  {
+    "title": "Senior SRE / Platform Engineer — Observability",
+    "kind": "job_posting",
+    "body": "We are hiring a Senior SRE with platform engineering experience to own observability for our internal developer platform (IDP). You will operate our eBPF observability tooling — Cilium and Hubble for kernel-level tracing — and integrate it into Backstage so developers see golden signals next to their services. Kubernetes, Terraform, and GitOps are part of the daily toolkit. Platform engineering principles (self-service, paved roads) guide the team. FinOps awareness — cost optimization and showback — is valued as we tighten cloud cost governance."
+  },
+  {
+    "title": "Cloud Cost Governance & FinOps — Vendor Solution Brief",
+    "kind": "vendor_doc",
+    "body": "Our FinOps platform brings cost governance to cloud-native organizations. It provides showback and chargeback reporting, anomaly detection on spend, and rightsizing recommendations for Kubernetes workloads. Platform engineering teams integrate our FinOps APIs into their internal developer platform (IDP) so cost data appears alongside golden paths in Backstage. We also ingest eBPF-based observability signals (Cilium) to attribute network egress costs precisely via kernel-level tracing. Cost optimization becomes a first-class property of the platform."
+  },
+  {
+    "title": "Platform Engineer — Internal Tooling & Self-Service",
+    "kind": "job_posting",
+    "body": "Help us scale our internal developer platform (IDP). As a Platform Engineer you will build self-service workflows in Backstage, manage Terraform modules, and operate Kubernetes clusters. Platform engineering — treating the platform as a product with golden paths — is the heart of the team. We run eBPF observability (Cilium, kernel-level tracing) cluster-wide for deep, low-overhead visibility. Experience with service mesh and GitOps is a plus."
+  },
+  {
+    "title": "Lead Platform Engineer — Developer Productivity",
+    "kind": "job_posting",
+    "body": "As Lead Platform Engineer you will set the technical direction for our internal developer platform (IDP). You will evolve our Backstage portal, define golden paths, and drive platform engineering adoption across the company. Reliability is underpinned by eBPF observability: Cilium and Hubble give us kernel-level tracing and network flow visibility with negligible overhead. You will also champion FinOps — establishing cost governance guardrails, chargeback, and showback so every team owns its cloud spend."
+  },
+  {
+    "title": "Kubernetes Platform Engineer — Security & Networking",
+    "kind": "job_posting",
+    "body": "We are looking for a Kubernetes Platform Engineer to harden the networking and security layer of our internal developer platform (IDP). You will manage Cilium CNI and use eBPF observability for kernel-level tracing of network policy and runtime behavior. Platform engineering principles drive our self-service model, with Backstage golden paths for every workload type. Terraform, GitOps, and service mesh experience are expected. This role is hands-on with container security and zero-trust networking."
+  },
+  {
+    "title": "Cloud FinOps Practitioner — Vendor Enablement Guide",
+    "kind": "vendor_doc",
+    "body": "This enablement guide introduces FinOps practices for cloud platform teams: cost governance, showback and chargeback, budget alerting, and continuous cost optimization. We describe how to surface unit-cost metrics inside an internal developer platform so engineers see the cost of their Kubernetes workloads. Platform engineering and FinOps are increasingly intertwined: the IDP becomes the place where cost guardrails are enforced. Where teams run Cilium, eBPF observability can attribute network costs precisely through kernel-level tracing."
+  }
+]

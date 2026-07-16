@@ -1,0 +1,81 @@
+{
+  "product": "widgets-101",
+  "version": "2.0",
+  "title": "Widgets 101",
+  "subtitle": "Intro to Synthetic Widgets (placeholder course content)",
+  "freeTierSlugs": ["w0-1-what-is-a-widget", "w0-2-widget-parts"],
+  "milestones": [
+    {
+      "id": "w0",
+      "number": 0,
+      "title": "Widget Foundations",
+      "summary": "Placeholder milestone. Learn the (entirely fictional) basics of what a widget is and the parts it is made of.",
+      "modules": [
+        {
+          "slug": "w0-1-what-is-a-widget",
+          "number": "0.1",
+          "title": "What Is a Widget?",
+          "tagline": "Placeholder tagline: a gentle, obviously-synthetic introduction to the widget concept.",
+          "studyTime": "2h",
+          "tier": "free",
+          "file": "M0.1-what-is-a-widget.md",
+          "learningOutcomes": [
+            "Placeholder outcome: define a synthetic widget in one sentence.",
+            "Placeholder outcome: name three fictional uses for a widget.",
+            "Placeholder outcome: recognize a widget diagram."
+          ]
+        },
+        {
+          "slug": "w0-2-widget-parts",
+          "number": "0.2",
+          "title": "The Parts of a Widget",
+          "tagline": "Placeholder tagline: the fictional sprocket, the flange, and the gizmo.",
+          "studyTime": "2h",
+          "tier": "free",
+          "file": "M0.2-widget-parts.md",
+          "learningOutcomes": [
+            "Placeholder outcome: label the parts of a synthetic widget.",
+            "Placeholder outcome: explain how the flange connects to the gizmo.",
+            "Placeholder outcome: sketch a two-part widget."
+          ]
+        }
+      ]
+    },
+    {
+      "id": "w1",
+      "number": 1,
+      "title": "Widget Assembly",
+      "summary": "Placeholder milestone. Put fictional widget parts together and pretend-test them. Milestone project: build a synthetic widget.",
+      "modules": [
+        {
+          "slug": "w1-1-assembling-widgets",
+          "number": "1.1",
+          "title": "Assembling a Widget",
+          "tagline": "Placeholder tagline: snap the sprocket into the flange (not real instructions).",
+          "studyTime": "3h",
+          "tier": "all_access",
+          "file": "M1.1-assembling-widgets.md",
+          "learningOutcomes": [
+            "Placeholder outcome: order the fictional assembly steps.",
+            "Placeholder outcome: choose the right imaginary tool.",
+            "Placeholder outcome: describe a common assembly mistake."
+          ]
+        },
+        {
+          "slug": "w1-2-testing-widgets",
+          "number": "1.2",
+          "title": "Testing a Widget",
+          "tagline": "Placeholder tagline: does the synthetic widget wobble? A pretend quality check.",
+          "studyTime": "3h",
+          "tier": "all_access",
+          "file": "M1.2-testing-widgets.md",
+          "learningOutcomes": [
+            "Placeholder outcome: run the fictional wobble test.",
+            "Placeholder outcome: record a pass/fail result.",
+            "Placeholder outcome: decide when to reassemble."
+          ]
+        }
+      ]
+    }
+  ]
+}

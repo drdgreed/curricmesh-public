@@ -1,0 +1,1 @@
+- **Go-live checklist + prod-seed ops tools** — `docs/GO_LIVE.md` (ordered backend/AI-keys/frontend/compliance/verify sequence), `scripts/reset_demo_data.py` + `scripts/seed_prod.py` (guarded wipe/seed for FORCE-RLS databases), and pinned `bcrypt<4.1.0` to silence the harmless passlib version warning.

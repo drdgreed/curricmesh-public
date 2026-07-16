@@ -1,0 +1,102 @@
+# CurricMesh — production self-host stack.
+#
+#   cp .env.example .env   # then fill it in (esp. generate SECRET_KEY)
+#   docker compose up -d --build
+#
+# Topology (single public origin → no CORS):
+#   caddy (TLS, :443) ── /api/* ──▶ api  (FastAPI, runs as least-priv curricmesh_app)
+#                      └─ /*  ────▶ web  (nginx serving the React SPA)
+#                                   api ─▶ db (postgres 16)
+#   migrate: one-shot — alembic + create_app_role.sql + seed (as the DB owner).
+#
+# Local smoke test: set DOMAIN=localhost in .env → Caddy serves plain HTTP at
+# http://localhost (no ACME for localhost). See docs/SELF_HOSTING.md.
+
+services:
+  db:
+    image: postgres:16
+    environment:
+      POSTGRES_USER: curricmesh           # DB owner / superuser (migrations + seed run as this)
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
+      POSTGRES_DB: curricmesh
+    volumes:
+      - pg_data:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U curricmesh -d curricmesh"]
+      interval: 5s
+      timeout: 5s
+      retries: 10
+    restart: unless-stopped
+
+  # One-shot bootstrap: schema → app role → seed. Idempotent / safe to re-run.
+  # Runs AS THE OWNER (superuser) so the seed bypasses RLS and "just works".
+  migrate:
+    build: ./backend
+    # Override the image ENTRYPOINT (which runs alembic + uvicorn) — this
+    # one-shot only bootstraps the DB, it must NOT start a server.
+    entrypoint: ["python", "/app/scripts/migrate_entrypoint.py"]
+    environment:
+      # OWNER connection — alembic DDL + create_app_role.sql + seed all run as this.
+      DATABASE_URL: postgresql+asyncpg://curricmesh:${POSTGRES_PASSWORD}@db:5432/curricmesh
+      DATABASE_URL_SYNC: postgresql+psycopg2://curricmesh:${POSTGRES_PASSWORD}@db:5432/curricmesh
+      APP_DB_PASSWORD: ${APP_DB_PASSWORD}
+      APP_ENV: production
+      SECRET_KEY: ${SECRET_KEY}
+    volumes:
+      # Bring the create_app_role.sql + migrate_entrypoint.py into the image at runtime
+      # (the backend build context is ./backend, so repo-root scripts/ isn't baked in).
+      - ./scripts:/app/scripts:ro
+    depends_on:
+      db:
+        condition: service_healthy
+    restart: "no"
+
+  api:
+    build: ./backend
+    environment:
+      # RUNTIME connection — the NON-superuser app role so Postgres RLS engages.
+      DATABASE_URL: postgresql+asyncpg://curricmesh_app:${APP_DB_PASSWORD}@db:5432/curricmesh
+      # The entrypoint runs `alembic upgrade head` (idempotent) using the OWNER conn.
+      DATABASE_URL_SYNC: postgresql+psycopg2://curricmesh:${POSTGRES_PASSWORD}@db:5432/curricmesh
+      APP_ENV: production
+      SECRET_KEY: ${SECRET_KEY}
+      CORS_ORIGINS: https://${DOMAIN}
+      ANTHROPIC_API_KEY: ${ANTHROPIC_API_KEY:-}
+    depends_on:
+      db:
+        condition: service_healthy
+      migrate:
+        condition: service_completed_successfully
+    restart: unless-stopped
+
+  web:
+    build:
+      context: ./frontend
+      args:
+        # Relative, same-origin API base → browser calls https://<domain>/api/v1/...
+        VITE_API_URL: /api/v1
+    depends_on:
+      - api
+    restart: unless-stopped
+
+  caddy:
+    image: caddy:2-alpine
+    ports:
+      - "80:80"
+      - "443:443"
+    environment:
+      DOMAIN: ${DOMAIN}
+      ACME_EMAIL: ${ACME_EMAIL}
+    volumes:
+      - ./deploy/Caddyfile:/etc/caddy/Caddyfile:ro
+      - caddy_data:/data
+      - caddy_config:/config
+    depends_on:
+      - api
+      - web
+    restart: unless-stopped
+
+volumes:
+  pg_data:
+  caddy_data:
+  caddy_config:

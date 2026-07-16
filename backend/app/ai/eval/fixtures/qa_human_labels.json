@@ -1,0 +1,137 @@
+{
+  "_meta": {
+    "purpose": "Synthetic MULTI-RATER human-QA-Lead labels for the C4 QA-judge agreement eval. Each row is a CCR scored 1-5 on all six QA_DIMENSIONS by THREE independent raters (rater_A, rater_B, rater_C). Multi-rater shape enables (a) a human inter-rater baseline (metrics.inter_rater_agreement) and (b) a per-dimension consensus (metrics.consensus_scores, the median) that the AI judge is measured against within +/-1.",
+    "shape": "labels[].rater_scores.{rater_A,rater_B,rater_C}.{content_accuracy,alignment,prerequisites,consistency,instructor_support,student_experience} = int 1..5",
+    "note": "SYNTHETIC / portfolio demo artifact. The three raters are FICTIONAL QA Leads; rater_B and rater_C are plausible variations on rater_A authored to produce a realistic (non-trivial, non-chaotic) human inter-rater within-+/-1 agreement, NOT real human labels."
+  },
+  "labels": [
+    {
+      "ccr_id": "ccr-eval-001",
+      "title": "Add Model Context Protocol (MCP) module",
+      "summary": "Introduce a new Week-13 module teaching the MCP specification, MCP server development, capability negotiation, and the MCP ecosystem. Rationale: every industry corpus entry now treats MCP as a required agent-tool integration standard, yet the bootcamp only covers generic function-calling.",
+      "proposed_changes": "New module 'Model Context Protocol in Production' with 4 lessons: (1) MCP spec & JSON-RPC transport, (2) building an MCP server, (3) capability negotiation & tool discovery, (4) a hands-on lab wiring a multi-agent system to MCP servers. Includes instructor slides, a graded lab rubric, and two formative quizzes.",
+      "rater_scores": {
+        "rater_A": {
+          "content_accuracy": 5,
+          "alignment": 5,
+          "prerequisites": 4,
+          "consistency": 4,
+          "instructor_support": 5,
+          "student_experience": 4
+        },
+        "rater_B": {
+          "content_accuracy": 5,
+          "alignment": 4,
+          "prerequisites": 3,
+          "consistency": 4,
+          "instructor_support": 5,
+          "student_experience": 5
+        },
+        "rater_C": {
+          "content_accuracy": 4,
+          "alignment": 5,
+          "prerequisites": 3,
+          "consistency": 3,
+          "instructor_support": 4,
+          "student_experience": 4
+        }
+      }
+    },
+    {
+      "ccr_id": "ccr-eval-002",
+      "title": "Patch: refresh vector-DB lesson with hybrid search",
+      "summary": "Minor refinement to the existing Retrieval-Augmented Generation lesson to mention hybrid (dense+sparse) search. Rationale: a few corpus entries reference hybrid retrieval, but it is a small addition, not a new module.",
+      "proposed_changes": "Add two slides on hybrid search and a one-paragraph note to the RAG reading. No new assessment. No lab change.",
+      "rater_scores": {
+        "rater_A": {
+          "content_accuracy": 4,
+          "alignment": 4,
+          "prerequisites": 5,
+          "consistency": 4,
+          "instructor_support": 2,
+          "student_experience": 3
+        },
+        "rater_B": {
+          "content_accuracy": 4,
+          "alignment": 3,
+          "prerequisites": 5,
+          "consistency": 5,
+          "instructor_support": 3,
+          "student_experience": 3
+        },
+        "rater_C": {
+          "content_accuracy": 5,
+          "alignment": 4,
+          "prerequisites": 4,
+          "consistency": 4,
+          "instructor_support": 4,
+          "student_experience": 1
+        }
+      }
+    },
+    {
+      "ccr_id": "ccr-eval-003",
+      "title": "Add Agent Observability & Distributed Tracing module",
+      "summary": "New module covering OpenTelemetry span emission, LangSmith/Arize Phoenix trace ingestion, and distributed tracing across multi-agent execution trees. Rationale: 38/40 corpus entries treat production observability as a first-class requirement; the bootcamp only covers design-time offline evaluation.",
+      "proposed_changes": "New module 'Observing Agents in Production' with 3 lessons plus a capstone-integrated tracing lab. Provides instructor runbook, a reference OpenTelemetry collector config, and a summative rubric. Prerequisite mapping to the deployment module is included.",
+      "rater_scores": {
+        "rater_A": {
+          "content_accuracy": 5,
+          "alignment": 5,
+          "prerequisites": 5,
+          "consistency": 4,
+          "instructor_support": 4,
+          "student_experience": 5
+        },
+        "rater_B": {
+          "content_accuracy": 5,
+          "alignment": 4,
+          "prerequisites": 5,
+          "consistency": 5,
+          "instructor_support": 5,
+          "student_experience": 5
+        },
+        "rater_C": {
+          "content_accuracy": 4,
+          "alignment": 5,
+          "prerequisites": 4,
+          "consistency": 4,
+          "instructor_support": 3,
+          "student_experience": 3
+        }
+      }
+    },
+    {
+      "ccr_id": "ccr-eval-004",
+      "title": "Add Fine-tuning & RLHF for Agentic Tasks elective",
+      "summary": "New elective on SFT, DPO, RLHF, and LoRA/QLoRA adapter training for agentic tasks, including building fine-tuning datasets from agent traces. Rationale: 21/40 corpus entries list fine-tuning as required or preferred, but it is a moderate-signal, advanced topic better positioned as an elective.",
+      "proposed_changes": "New elective 'Fine-tuning Agents' with 5 lessons. Heavy on theory; the hands-on LoRA lab requires GPU access that not all cohorts have, and the dataset-construction lesson is underspecified. Instructor guidance is thin in the current draft.",
+      "rater_scores": {
+        "rater_A": {
+          "content_accuracy": 4,
+          "alignment": 3,
+          "prerequisites": 2,
+          "consistency": 3,
+          "instructor_support": 2,
+          "student_experience": 3
+        },
+        "rater_B": {
+          "content_accuracy": 3,
+          "alignment": 3,
+          "prerequisites": 2,
+          "consistency": 3,
+          "instructor_support": 2,
+          "student_experience": 4
+        },
+        "rater_C": {
+          "content_accuracy": 4,
+          "alignment": 5,
+          "prerequisites": 4,
+          "consistency": 2,
+          "instructor_support": 1,
+          "student_experience": 3
+        }
+      }
+    }
+  ]
+}

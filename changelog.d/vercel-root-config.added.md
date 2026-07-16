@@ -1,0 +1,1 @@
+- **Root `vercel.json`** — builds the `frontend/` Vite app from the repo root so Vercel imports cleanly without a Root Directory setting (installs + builds `frontend/`, serves `frontend/dist` with SPA rewrites).

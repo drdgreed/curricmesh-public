@@ -1,0 +1,48 @@
+{
+  "_meta": {
+    "purpose": "Ground-truth planted gaps for eval curriculum 2, 'Cloud Platform Engineering'. Lists 2026-relevant topics that appear frequently in this curriculum's synthetic corpus (corpus.json) but are NOT covered by the program (covered_topics.json). Used by the eval harness for per-curriculum precision/recall, generalizing gap detection beyond curriculum 1.",
+    "eval_use": "Precision/recall scoring: a gap-detection run is CORRECT if it surfaces these topics by canonical name (or a close paraphrase / canonical tag). It is INCORRECT if it misses a topic or invents gaps not listed here. The harness applies the same full-name-OR-canonical-tag matching rule used for curriculum 1.",
+    "mention_count_methodology": "mention_count = number of corpus.json entries whose 'body' text contains the topic's full name OR any of its canonical tags / abbreviations (case-insensitive). Denominator is corpus_size below.",
+    "signal_strength_legend": {
+      "critical": "mention_fraction >= 0.90 — topic appears in nearly every corpus entry; any gap detector that misses it is clearly wrong",
+      "strong": "mention_fraction 0.70-0.89 — dominant signal; expected to be surfaced by any competent gap analysis",
+      "moderate": "mention_fraction 0.40-0.69 — real gap but not universal; intentionally included to test recall at lower signal levels"
+    },
+    "corpus_size": 14,
+    "corpus_files": ["corpus.json"],
+    "note": "ALL data in this curriculum (covered_topics.json, corpus.json, planted_gaps.json) is SYNTHETIC / FICTIONAL — a portfolio demo artifact authored for the eval harness, not scraped from real job boards or vendors.",
+    "generated_at": "2026-06-04"
+  },
+  "planted_gaps": [
+    {
+      "topic": "eBPF-based Observability",
+      "canonical_tags": ["eBPF", "eBPF observability", "Cilium", "kernel-level tracing"],
+      "mention_count": 14,
+      "mention_fraction": 1.0,
+      "bootcamp_coverage": "absent",
+      "rationale": "The program teaches metrics/logging with Prometheus and Grafana but does NOT cover eBPF-based observability — attaching eBPF programs to kernel hooks for zero-instrumentation network/runtime telemetry (Cilium, Hubble, kernel-level tracing). Every corpus entry references eBPF observability as a required production skill in 2026.",
+      "gap_severity": "critical",
+      "signal_strength": "critical"
+    },
+    {
+      "topic": "Platform Engineering & Internal Developer Platforms (IDP)",
+      "canonical_tags": ["platform engineering", "internal developer platform", "IDP", "Backstage"],
+      "mention_count": 14,
+      "mention_fraction": 1.0,
+      "bootcamp_coverage": "absent",
+      "rationale": "The program teaches Kubernetes, Terraform, CI/CD, and GitOps as individual tools but does NOT teach platform engineering as a discipline: building an Internal Developer Platform (IDP) with self-service golden paths, a Backstage developer portal, and platform-as-a-product thinking. This is the dominant 2026 cloud-platform role and appears in every corpus entry.",
+      "gap_severity": "critical",
+      "signal_strength": "critical"
+    },
+    {
+      "topic": "FinOps & Cloud Cost Governance",
+      "canonical_tags": ["FinOps", "cost governance", "cost optimization", "showback", "chargeback"],
+      "mention_count": 8,
+      "mention_fraction": 0.571,
+      "bootcamp_coverage": "partial_mismatch",
+      "rationale": "The program covers 'Cloud Cost Basics & Resource Tagging' but does NOT teach FinOps as a practice: cost governance, showback/chargeback models, anomaly detection on spend, and continuous cost optimization wired into the platform. 8/14 corpus entries list FinOps as a required or preferred skill — a real but non-universal gap, included to test recall at a lower (moderate) signal level.",
+      "gap_severity": "significant",
+      "signal_strength": "moderate"
+    }
+  ]
+}

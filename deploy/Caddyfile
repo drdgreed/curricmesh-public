@@ -1,0 +1,30 @@
+# CurricMesh reverse proxy / TLS terminator.
+#
+# {$DOMAIN} is injected from the environment (see .env / docker-compose).
+#   - On a REAL domain (e.g. curricmesh.example.com) Caddy auto-provisions a
+#     Let's Encrypt certificate on first request — public HTTPS, zero config.
+#   - For LOCAL testing set DOMAIN=localhost: Caddy serves http://localhost over
+#     plain HTTP (it does NOT attempt ACME for localhost), so the full stack is
+#     reachable at http://localhost without certs.
+#
+# Routing (single origin → no CORS): /api/* → backend, everything else → SPA.
+
+{
+	# ACME contact address for Let's Encrypt. Ignored for localhost.
+	email {$ACME_EMAIL}
+}
+
+{$DOMAIN} {
+	encode gzip
+
+	# API traffic → FastAPI backend. The backend mounts every route under
+	# /api/v1/... already, so we proxy the raw path through untouched.
+	handle /api/* {
+		reverse_proxy api:8000
+	}
+
+	# Everything else → the SPA (nginx serves dist/ with index.html fallback).
+	handle {
+		reverse_proxy web:80
+	}
+}

@@ -1,0 +1,650 @@
+{
+  "asset_diff": {
+    "representative": {
+      "asset_key": "agentic-ai/v1/01/lesson_plan",
+      "from_semver": "1.0.0",
+      "kind": "lesson_plan",
+      "structured": null,
+      "text": {
+        "added": [
+          "This lesson_plan covers the fundamentals and advanced applications of Foundations: LLMs in Production Systems \u2014 lesson_plan.",
+          "- Advanced patterns",
+          "- Common pitfalls and how to debug them",
+          "- Further reading"
+        ],
+        "removed": [
+          "This lesson_plan covers the fundamentals of Foundations: LLMs in Production Systems \u2014 lesson_plan.",
+          "- Common pitfalls"
+        ],
+        "unified": "--- a\n+++ b\n@@ -1,10 +1,12 @@\n # Foundations: LLMs in Production Systems \u2014 lesson_plan\n \n ## Overview\n-This lesson_plan covers the fundamentals of Foundations: LLMs in Production Systems \u2014 lesson_plan.\n+This lesson_plan covers the fundamentals and advanced applications of Foundations: LLMs in Production Systems \u2014 lesson_plan.\n \n ## Outline\n - Motivation and context\n - Core techniques\n+- Advanced patterns\n - Hands-on walkthrough\n-- Common pitfalls\n+- Common pitfalls and how to debug them\n+- Further reading\n"
+      },
+      "to_semver": "1.2.0"
+    },
+    "structured": {
+      "asset_key": "agentic-ai/v1/projects/01/rubric",
+      "from_semver": "1.0.0",
+      "kind": "rubric",
+      "structured": {
+        "added": [
+          {
+            "name": "Reproducibility",
+            "weight": 0.1
+          }
+        ],
+        "changed": [
+          {
+            "from": 0.4,
+            "key": "Correctness",
+            "to": 0.35
+          },
+          {
+            "from": 0.2,
+            "key": "Documentation",
+            "to": 0.15
+          }
+        ],
+        "removed": []
+      },
+      "text": null,
+      "to_semver": "1.1.0"
+    }
+  },
+  "dashboard_alignment": {
+    "agentic-ai": {
+      "alignment": [
+        {
+          "dependency_key": "agentic-ai/v1/01/lesson_plan",
+          "dependency_name": "Week 1: Foundations: LLMs in Production Systems \u00b7 Lesson Plan",
+          "dependent_is_stale": true,
+          "dependent_key": "agentic-ai/v1/01/learning_objectives",
+          "dependent_name": "Week 1: Foundations: LLMs in Production Systems \u00b7 Learning Objectives"
+        },
+        {
+          "dependency_key": "agentic-ai/v1/01/lesson_plan",
+          "dependency_name": "Week 1: Foundations: LLMs in Production Systems \u00b7 Lesson Plan",
+          "dependent_is_stale": true,
+          "dependent_key": "agentic-ai/v1/01/slides",
+          "dependent_name": "Week 1: Foundations: LLMs in Production Systems \u00b7 Slides"
+        },
+        {
+          "dependency_key": "agentic-ai/v1/02/lesson_plan",
+          "dependency_name": "Week 2: Prompt Engineering & Chain-of-Thought \u00b7 Lesson Plan",
+          "dependent_is_stale": true,
+          "dependent_key": "agentic-ai/v1/02/assessment",
+          "dependent_name": "Week 2: Prompt Engineering & Chain-of-Thought \u00b7 Assessment"
+        },
+        {
+          "dependency_key": "agentic-ai/v1/01/lesson_plan",
+          "dependency_name": "Week 1: Foundations: LLMs in Production Systems \u00b7 Lesson Plan",
+          "dependent_is_stale": true,
+          "dependent_key": "agentic-ai/v1/02/lesson_plan",
+          "dependent_name": "Week 2: Prompt Engineering & Chain-of-Thought \u00b7 Lesson Plan"
+        },
+        {
+          "dependency_key": "agentic-ai/v1/03/lesson_plan",
+          "dependency_name": "Week 3: Retrieval-Augmented Generation (RAG) \u00b7 Lesson Plan",
+          "dependent_is_stale": true,
+          "dependent_key": "agentic-ai/v1/03/learning_objectives",
+          "dependent_name": "Week 3: Retrieval-Augmented Generation (RAG) \u00b7 Learning Objectives"
+        },
+        {
+          "dependency_key": "agentic-ai/v1/03/lesson_plan",
+          "dependency_name": "Week 3: Retrieval-Augmented Generation (RAG) \u00b7 Lesson Plan",
+          "dependent_is_stale": true,
+          "dependent_key": "agentic-ai/v1/03/slides",
+          "dependent_name": "Week 3: Retrieval-Augmented Generation (RAG) \u00b7 Slides"
+        },
+        {
+          "dependency_key": "agentic-ai/v1/03/lesson_plan",
+          "dependency_name": "Week 3: Retrieval-Augmented Generation (RAG) \u00b7 Lesson Plan",
+          "dependent_is_stale": true,
+          "dependent_key": "agentic-ai/v1/04/lesson_plan",
+          "dependent_name": "Week 4: Vector Databases & Embedding Strategies \u00b7 Lesson Plan"
+        },
+        {
+          "dependency_key": "agentic-ai/v1/projects/01/rubric",
+          "dependency_name": "RAG-Powered Technical Interview Coach \u00b7 Rubric",
+          "dependent_is_stale": true,
+          "dependent_key": "agentic-ai/v1/projects/02/rubric",
+          "dependent_name": "Multi-Agent Code Review Pipeline \u00b7 Rubric"
+        }
+      ],
+      "name": "Agentic AI Architecture in Production"
+    }
+  },
+  "graph": {
+    "edges": [
+      {
+        "edge_type": "supports",
+        "from_key": "agentic-ai/v1/01/lesson_plan",
+        "to_key": "agentic-ai/v1/01/learning_objectives"
+      },
+      {
+        "edge_type": "supports",
+        "from_key": "agentic-ai/v1/01/lesson_plan",
+        "to_key": "agentic-ai/v1/01/slides"
+      },
+      {
+        "edge_type": "prerequisite",
+        "from_key": "agentic-ai/v1/01/lesson_plan",
+        "to_key": "agentic-ai/v1/02/lesson_plan"
+      },
+      {
+        "edge_type": "supports",
+        "from_key": "agentic-ai/v1/02/lesson_plan",
+        "to_key": "agentic-ai/v1/02/assessment"
+      },
+      {
+        "edge_type": "supports",
+        "from_key": "agentic-ai/v1/02/lesson_plan",
+        "to_key": "agentic-ai/v1/02/slides"
+      },
+      {
+        "edge_type": "prerequisite",
+        "from_key": "agentic-ai/v1/02/lesson_plan",
+        "to_key": "agentic-ai/v1/03/lesson_plan"
+      },
+      {
+        "edge_type": "supports",
+        "from_key": "agentic-ai/v1/03/lesson_plan",
+        "to_key": "agentic-ai/v1/03/learning_objectives"
+      },
+      {
+        "edge_type": "supports",
+        "from_key": "agentic-ai/v1/03/lesson_plan",
+        "to_key": "agentic-ai/v1/03/slides"
+      },
+      {
+        "edge_type": "prerequisite",
+        "from_key": "agentic-ai/v1/03/lesson_plan",
+        "to_key": "agentic-ai/v1/04/lesson_plan"
+      },
+      {
+        "edge_type": "supports",
+        "from_key": "agentic-ai/v1/04/lesson_plan",
+        "to_key": "agentic-ai/v1/04/assessment"
+      },
+      {
+        "edge_type": "supports",
+        "from_key": "agentic-ai/v1/04/lesson_plan",
+        "to_key": "agentic-ai/v1/04/slides"
+      },
+      {
+        "edge_type": "prerequisite",
+        "from_key": "agentic-ai/v1/04/lesson_plan",
+        "to_key": "agentic-ai/v1/05/lesson_plan"
+      },
+      {
+        "edge_type": "supports",
+        "from_key": "agentic-ai/v1/05/lesson_plan",
+        "to_key": "agentic-ai/v1/05/slides"
+      },
+      {
+        "edge_type": "prerequisite",
+        "from_key": "agentic-ai/v1/05/lesson_plan",
+        "to_key": "agentic-ai/v1/06/lesson_plan"
+      },
+      {
+        "edge_type": "supports",
+        "from_key": "agentic-ai/v1/06/lesson_plan",
+        "to_key": "agentic-ai/v1/06/assessment"
+      },
+      {
+        "edge_type": "supports",
+        "from_key": "agentic-ai/v1/06/lesson_plan",
+        "to_key": "agentic-ai/v1/06/learning_objectives"
+      },
+      {
+        "edge_type": "prerequisite",
+        "from_key": "agentic-ai/v1/06/lesson_plan",
+        "to_key": "agentic-ai/v1/07/lesson_plan"
+      },
+      {
+        "edge_type": "supports",
+        "from_key": "agentic-ai/v1/07/lesson_plan",
+        "to_key": "agentic-ai/v1/07/slides"
+      },
+      {
+        "edge_type": "prerequisite",
+        "from_key": "agentic-ai/v1/07/lesson_plan",
+        "to_key": "agentic-ai/v1/08/lesson_plan"
+      },
+      {
+        "edge_type": "supports",
+        "from_key": "agentic-ai/v1/08/lesson_plan",
+        "to_key": "agentic-ai/v1/08/assessment"
+      },
+      {
+        "edge_type": "supports",
+        "from_key": "agentic-ai/v1/08/lesson_plan",
+        "to_key": "agentic-ai/v1/08/learning_objectives"
+      },
+      {
+        "edge_type": "prerequisite",
+        "from_key": "agentic-ai/v1/08/lesson_plan",
+        "to_key": "agentic-ai/v1/09/lesson_plan"
+      },
+      {
+        "edge_type": "supports",
+        "from_key": "agentic-ai/v1/09/lesson_plan",
+        "to_key": "agentic-ai/v1/09/slides"
+      },
+      {
+        "edge_type": "prerequisite",
+        "from_key": "agentic-ai/v1/09/lesson_plan",
+        "to_key": "agentic-ai/v1/10/lesson_plan"
+      },
+      {
+        "edge_type": "supports",
+        "from_key": "agentic-ai/v1/10/lesson_plan",
+        "to_key": "agentic-ai/v1/10/assessment"
+      },
+      {
+        "edge_type": "supports",
+        "from_key": "agentic-ai/v1/10/lesson_plan",
+        "to_key": "agentic-ai/v1/10/learning_objectives"
+      },
+      {
+        "edge_type": "prerequisite",
+        "from_key": "agentic-ai/v1/10/lesson_plan",
+        "to_key": "agentic-ai/v1/11/lesson_plan"
+      },
+      {
+        "edge_type": "supports",
+        "from_key": "agentic-ai/v1/11/lesson_plan",
+        "to_key": "agentic-ai/v1/11/slides"
+      },
+      {
+        "edge_type": "prerequisite",
+        "from_key": "agentic-ai/v1/11/lesson_plan",
+        "to_key": "agentic-ai/v1/12/lesson_plan"
+      },
+      {
+        "edge_type": "supports",
+        "from_key": "agentic-ai/v1/12/lesson_plan",
+        "to_key": "agentic-ai/v1/12/assessment"
+      },
+      {
+        "edge_type": "supports",
+        "from_key": "agentic-ai/v1/12/lesson_plan",
+        "to_key": "agentic-ai/v1/12/learning_objectives"
+      },
+      {
+        "edge_type": "prerequisite",
+        "from_key": "agentic-ai/v1/12/lesson_plan",
+        "to_key": "agentic-ai/v1/projects/01/rubric"
+      },
+      {
+        "edge_type": "prerequisite",
+        "from_key": "agentic-ai/v1/12/lesson_plan",
+        "to_key": "agentic-ai/v1/projects/02/rubric"
+      },
+      {
+        "edge_type": "prerequisite",
+        "from_key": "agentic-ai/v1/12/lesson_plan",
+        "to_key": "agentic-ai/v1/projects/03/rubric"
+      },
+      {
+        "edge_type": "prerequisite",
+        "from_key": "agentic-ai/v1/12/lesson_plan",
+        "to_key": "agentic-ai/v1/projects/04/rubric"
+      },
+      {
+        "edge_type": "prerequisite",
+        "from_key": "agentic-ai/v1/projects/01/rubric",
+        "to_key": "agentic-ai/v1/projects/02/rubric"
+      },
+      {
+        "edge_type": "prerequisite",
+        "from_key": "agentic-ai/v1/projects/02/rubric",
+        "to_key": "agentic-ai/v1/projects/03/rubric"
+      },
+      {
+        "edge_type": "prerequisite",
+        "from_key": "agentic-ai/v1/projects/03/rubric",
+        "to_key": "agentic-ai/v1/projects/04/rubric"
+      }
+    ],
+    "misaligned": [
+      "agentic-ai/v1/01/learning_objectives",
+      "agentic-ai/v1/01/slides",
+      "agentic-ai/v1/02/assessment",
+      "agentic-ai/v1/02/lesson_plan",
+      "agentic-ai/v1/03/learning_objectives",
+      "agentic-ai/v1/03/slides",
+      "agentic-ai/v1/04/lesson_plan",
+      "agentic-ai/v1/projects/02/rubric"
+    ],
+    "nodes": [
+      {
+        "key": "agentic-ai/v1/01/learning_objectives",
+        "kind": "learning_objectives",
+        "label": "Week 1: Foundations: LLMs in Production Systems \u00b7 Learning Objectives",
+        "latest_version": "1.1.0",
+        "misaligned": true,
+        "status": "active"
+      },
+      {
+        "key": "agentic-ai/v1/01/lesson_plan",
+        "kind": "lesson_plan",
+        "label": "Week 1: Foundations: LLMs in Production Systems \u00b7 Lesson Plan",
+        "latest_version": "1.2.0",
+        "misaligned": false,
+        "status": "active"
+      },
+      {
+        "key": "agentic-ai/v1/01/slides",
+        "kind": "slides",
+        "label": "Week 1: Foundations: LLMs in Production Systems \u00b7 Slides",
+        "latest_version": "1.1.0",
+        "misaligned": true,
+        "status": "active"
+      },
+      {
+        "key": "agentic-ai/v1/02/assessment",
+        "kind": "assessment",
+        "label": "Week 2: Prompt Engineering & Chain-of-Thought \u00b7 Assessment",
+        "latest_version": "1.0.0",
+        "misaligned": true,
+        "status": "active"
+      },
+      {
+        "key": "agentic-ai/v1/02/lesson_plan",
+        "kind": "lesson_plan",
+        "label": "Week 2: Prompt Engineering & Chain-of-Thought \u00b7 Lesson Plan",
+        "latest_version": "1.1.0",
+        "misaligned": true,
+        "status": "active"
+      },
+      {
+        "key": "agentic-ai/v1/02/slides",
+        "kind": "slides",
+        "label": "Week 2: Prompt Engineering & Chain-of-Thought \u00b7 Slides",
+        "latest_version": "1.1.0",
+        "misaligned": false,
+        "status": "approved"
+      },
+      {
+        "key": "agentic-ai/v1/03/learning_objectives",
+        "kind": "learning_objectives",
+        "label": "Week 3: Retrieval-Augmented Generation (RAG) \u00b7 Learning Objectives",
+        "latest_version": "1.0.0",
+        "misaligned": true,
+        "status": "draft"
+      },
+      {
+        "key": "agentic-ai/v1/03/lesson_plan",
+        "kind": "lesson_plan",
+        "label": "Week 3: Retrieval-Augmented Generation (RAG) \u00b7 Lesson Plan",
+        "latest_version": "1.1.0",
+        "misaligned": false,
+        "status": "active"
+      },
+      {
+        "key": "agentic-ai/v1/03/slides",
+        "kind": "slides",
+        "label": "Week 3: Retrieval-Augmented Generation (RAG) \u00b7 Slides",
+        "latest_version": "1.0.0",
+        "misaligned": true,
+        "status": "active"
+      },
+      {
+        "key": "agentic-ai/v1/04/assessment",
+        "kind": "assessment",
+        "label": "Week 4: Vector Databases & Embedding Strategies \u00b7 Assessment",
+        "latest_version": "1.0.0",
+        "misaligned": false,
+        "status": "review"
+      },
+      {
+        "key": "agentic-ai/v1/04/lesson_plan",
+        "kind": "lesson_plan",
+        "label": "Week 4: Vector Databases & Embedding Strategies \u00b7 Lesson Plan",
+        "latest_version": "1.0.0",
+        "misaligned": true,
+        "status": "active"
+      },
+      {
+        "key": "agentic-ai/v1/04/slides",
+        "kind": "slides",
+        "label": "Week 4: Vector Databases & Embedding Strategies \u00b7 Slides",
+        "latest_version": "1.0.0",
+        "misaligned": false,
+        "status": "active"
+      },
+      {
+        "key": "agentic-ai/v1/05/lesson_plan",
+        "kind": "lesson_plan",
+        "label": "Week 5: Agent Architectures: ReAct, Plan-and-Execute \u00b7 Lesson Plan",
+        "latest_version": "1.0.0",
+        "misaligned": false,
+        "status": "active"
+      },
+      {
+        "key": "agentic-ai/v1/05/slides",
+        "kind": "slides",
+        "label": "Week 5: Agent Architectures: ReAct, Plan-and-Execute \u00b7 Slides",
+        "latest_version": "1.0.0",
+        "misaligned": false,
+        "status": "active"
+      },
+      {
+        "key": "agentic-ai/v1/06/assessment",
+        "kind": "assessment",
+        "label": "Week 6: Tool Use & Function Calling \u00b7 Assessment",
+        "latest_version": "1.0.0",
+        "misaligned": false,
+        "status": "active"
+      },
+      {
+        "key": "agentic-ai/v1/06/learning_objectives",
+        "kind": "learning_objectives",
+        "label": "Week 6: Tool Use & Function Calling \u00b7 Learning Objectives",
+        "latest_version": "1.0.0",
+        "misaligned": false,
+        "status": "active"
+      },
+      {
+        "key": "agentic-ai/v1/06/lesson_plan",
+        "kind": "lesson_plan",
+        "label": "Week 6: Tool Use & Function Calling \u00b7 Lesson Plan",
+        "latest_version": "1.0.0",
+        "misaligned": false,
+        "status": "active"
+      },
+      {
+        "key": "agentic-ai/v1/07/lesson_plan",
+        "kind": "lesson_plan",
+        "label": "Week 7: Multi-Agent Orchestration \u00b7 Lesson Plan",
+        "latest_version": "1.0.0",
+        "misaligned": false,
+        "status": "active"
+      },
+      {
+        "key": "agentic-ai/v1/07/slides",
+        "kind": "slides",
+        "label": "Week 7: Multi-Agent Orchestration \u00b7 Slides",
+        "latest_version": "1.0.0",
+        "misaligned": false,
+        "status": "active"
+      },
+      {
+        "key": "agentic-ai/v1/08/assessment",
+        "kind": "assessment",
+        "label": "Week 8: Memory Systems & Long-Context Management \u00b7 Assessment",
+        "latest_version": "1.0.0",
+        "misaligned": false,
+        "status": "active"
+      },
+      {
+        "key": "agentic-ai/v1/08/learning_objectives",
+        "kind": "learning_objectives",
+        "label": "Week 8: Memory Systems & Long-Context Management \u00b7 Learning Objectives",
+        "latest_version": "1.0.0",
+        "misaligned": false,
+        "status": "active"
+      },
+      {
+        "key": "agentic-ai/v1/08/lesson_plan",
+        "kind": "lesson_plan",
+        "label": "Week 8: Memory Systems & Long-Context Management \u00b7 Lesson Plan",
+        "latest_version": "1.0.0",
+        "misaligned": false,
+        "status": "active"
+      },
+      {
+        "key": "agentic-ai/v1/09/lesson_plan",
+        "kind": "lesson_plan",
+        "label": "Week 9: Evaluation & Red-Teaming Agentic Systems \u00b7 Lesson Plan",
+        "latest_version": "1.0.0",
+        "misaligned": false,
+        "status": "active"
+      },
+      {
+        "key": "agentic-ai/v1/09/slides",
+        "kind": "slides",
+        "label": "Week 9: Evaluation & Red-Teaming Agentic Systems \u00b7 Slides",
+        "latest_version": "1.0.0",
+        "misaligned": false,
+        "status": "active"
+      },
+      {
+        "key": "agentic-ai/v1/10/assessment",
+        "kind": "assessment",
+        "label": "Week 10: Safety, Alignment & Guardrails \u00b7 Assessment",
+        "latest_version": "1.0.0",
+        "misaligned": false,
+        "status": "active"
+      },
+      {
+        "key": "agentic-ai/v1/10/learning_objectives",
+        "kind": "learning_objectives",
+        "label": "Week 10: Safety, Alignment & Guardrails \u00b7 Learning Objectives",
+        "latest_version": "1.0.0",
+        "misaligned": false,
+        "status": "active"
+      },
+      {
+        "key": "agentic-ai/v1/10/lesson_plan",
+        "kind": "lesson_plan",
+        "label": "Week 10: Safety, Alignment & Guardrails \u00b7 Lesson Plan",
+        "latest_version": "1.0.0",
+        "misaligned": false,
+        "status": "active"
+      },
+      {
+        "key": "agentic-ai/v1/11/lesson_plan",
+        "kind": "lesson_plan",
+        "label": "Week 11: Deployment: Latency, Cost & Reliability \u00b7 Lesson Plan",
+        "latest_version": "1.0.0",
+        "misaligned": false,
+        "status": "active"
+      },
+      {
+        "key": "agentic-ai/v1/11/slides",
+        "kind": "slides",
+        "label": "Week 11: Deployment: Latency, Cost & Reliability \u00b7 Slides",
+        "latest_version": "1.0.0",
+        "misaligned": false,
+        "status": "active"
+      },
+      {
+        "key": "agentic-ai/v1/12/assessment",
+        "kind": "assessment",
+        "label": "Week 12: Capstone: Full-Stack Agentic Application \u00b7 Assessment",
+        "latest_version": "1.0.0",
+        "misaligned": false,
+        "status": "active"
+      },
+      {
+        "key": "agentic-ai/v1/12/learning_objectives",
+        "kind": "learning_objectives",
+        "label": "Week 12: Capstone: Full-Stack Agentic Application \u00b7 Learning Objectives",
+        "latest_version": "1.0.0",
+        "misaligned": false,
+        "status": "active"
+      },
+      {
+        "key": "agentic-ai/v1/12/lesson_plan",
+        "kind": "lesson_plan",
+        "label": "Week 12: Capstone: Full-Stack Agentic Application \u00b7 Lesson Plan",
+        "latest_version": "1.0.0",
+        "misaligned": false,
+        "status": "active"
+      },
+      {
+        "key": "agentic-ai/v1/projects/01/rubric",
+        "kind": "rubric",
+        "label": "RAG-Powered Technical Interview Coach \u00b7 Rubric",
+        "latest_version": "1.1.0",
+        "misaligned": false,
+        "status": "active"
+      },
+      {
+        "key": "agentic-ai/v1/projects/01/spec",
+        "kind": "spec",
+        "label": "RAG-Powered Technical Interview Coach \u00b7 Spec",
+        "latest_version": "1.1.0",
+        "misaligned": false,
+        "status": "active"
+      },
+      {
+        "key": "agentic-ai/v1/projects/02/rubric",
+        "kind": "rubric",
+        "label": "Multi-Agent Code Review Pipeline \u00b7 Rubric",
+        "latest_version": "1.0.0",
+        "misaligned": true,
+        "status": "active"
+      },
+      {
+        "key": "agentic-ai/v1/projects/02/spec",
+        "kind": "spec",
+        "label": "Multi-Agent Code Review Pipeline \u00b7 Spec",
+        "latest_version": "1.0.0",
+        "misaligned": false,
+        "status": "review"
+      },
+      {
+        "key": "agentic-ai/v1/projects/03/rubric",
+        "kind": "rubric",
+        "label": "Autonomous Research Summarizer \u00b7 Rubric",
+        "latest_version": "1.0.0",
+        "misaligned": false,
+        "status": "active"
+      },
+      {
+        "key": "agentic-ai/v1/projects/03/starter",
+        "kind": "starter",
+        "label": "Autonomous Research Summarizer \u00b7 Starter Code",
+        "latest_version": "1.0.0",
+        "misaligned": false,
+        "status": "draft"
+      },
+      {
+        "key": "agentic-ai/v1/projects/04/rubric",
+        "kind": "rubric",
+        "label": "Production Agentic System (Capstone) \u00b7 Rubric",
+        "latest_version": "1.0.0",
+        "misaligned": false,
+        "status": "active"
+      },
+      {
+        "key": "agentic-ai/v1/projects/04/spec",
+        "kind": "spec",
+        "label": "Production Agentic System (Capstone) \u00b7 Spec",
+        "latest_version": "1.0.0",
+        "misaligned": false,
+        "status": "active"
+      },
+      {
+        "key": "agentic-ai/v1/projects/04/starter",
+        "kind": "starter",
+        "label": "Production Agentic System (Capstone) \u00b7 Starter Code",
+        "latest_version": "1.0.0",
+        "misaligned": false,
+        "status": "active"
+      }
+    ]
+  },
+  "slug": "agentic-ai"
+}

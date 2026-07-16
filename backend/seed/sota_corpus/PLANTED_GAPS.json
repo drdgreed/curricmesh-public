@@ -1,0 +1,49 @@
+{
+  "_meta": {
+    "purpose": "Ground-truth labels for the C4 eval harness. Lists topics that appear frequently in the SOTA corpus but are NOT covered (or only barely covered) by the 'Agentic AI Architecture in Production' bootcamp curriculum.",
+    "eval_use": "C4 precision/recall scoring: a gap-detection run is CORRECT if it surfaces all topics listed here with their canonical name (or a close paraphrase). A run is INCORRECT if it misses a topic or invents gaps not listed here.",
+    "mention_count_methodology": "mention_count = number of corpus entries whose 'body' text contains the topic's full name OR any of its common abbreviations (e.g. 'MCP' counts as 'Model Context Protocol'). The denominator is total_corpus_entries (== corpus_size below). The C4 eval harness MUST apply the same full-name-OR-abbreviation matching rule when scoring gap detection; a topic is 'mentioned' if either form appears anywhere in the body text.",
+    "signal_strength_legend": {
+      "critical": "mention_fraction >= 0.90 — topic appears in nearly every corpus entry; any gap detector that misses it is clearly wrong",
+      "strong": "mention_fraction 0.70–0.89 — dominant signal; expected to be surfaced by any competent gap analysis",
+      "moderate": "mention_fraction 0.40–0.69 — real gap but not universal; some detectors may rank it lower. Intentionally included to test recall at lower signal levels.",
+      "note": "Varied signal strength is intentional and realistic — production corpora contain both omnipresent and niche skill gaps."
+    },
+    "corpus_size": 40,
+    "corpus_files": ["job_postings.json", "vendor_docs.json"],
+    "note": "ALL corpus entries are SYNTHETIC / FICTIONAL — this is a portfolio demo artifact.",
+    "generated_at": "2026-06-04"
+  },
+  "planted_gaps": [
+    {
+      "topic": "Model Context Protocol (MCP)",
+      "canonical_tags": ["Model Context Protocol (MCP)"],
+      "mention_count": 40,
+      "mention_fraction": 1.0,
+      "bootcamp_coverage": "absent",
+      "rationale": "MCP is a 2024-2025 standardized JSON-RPC protocol for agent-tool integration (Anthropic open standard, v1.2 in 2026). The bootcamp covers generic function-calling and tool use (Week 6: Tool Use & Function Calling) but does NOT teach the MCP specification, MCP server development, capability negotiation, or the MCP ecosystem. Every corpus entry references MCP as a required skill or product feature.",
+      "gap_severity": "critical",
+      "signal_strength": "critical"
+    },
+    {
+      "topic": "Agent Observability & Distributed Tracing",
+      "canonical_tags": ["agent observability", "distributed tracing", "OpenTelemetry"],
+      "mention_count": 38,
+      "mention_fraction": 0.95,
+      "bootcamp_coverage": "partial_mismatch",
+      "rationale": "The bootcamp covers offline evaluation and red-teaming (Week 9: Evaluation & Red-Teaming Agentic Systems), which is a design-time activity. Production agent observability — OpenTelemetry span emission, LangSmith trace ingestion, Arize Phoenix monitoring, W&B Weave trace-based evaluation, distributed tracing across multi-agent execution trees — is a distinct operational skill not covered. Job postings and vendor docs treat observability as a first-class production requirement appearing in 38/40 corpus entries.",
+      "gap_severity": "critical",
+      "signal_strength": "critical"
+    },
+    {
+      "topic": "Fine-tuning & RLHF for Agentic Tasks",
+      "canonical_tags": ["fine-tuning", "RLHF", "DPO", "SFT", "LoRA", "instruction tuning"],
+      "mention_count": 21,
+      "mention_fraction": 0.525,
+      "bootcamp_coverage": "absent",
+      "rationale": "The bootcamp uses pre-trained foundation models throughout all 12 weeks with no module on fine-tuning, supervised fine-tuning (SFT), Direct Preference Optimization (DPO), RLHF, LoRA/QLoRA adapter training, or constructing fine-tuning datasets from agent traces. 21/40 corpus entries list fine-tuning as a required or strongly preferred skill for agentic AI roles in 2026.",
+      "gap_severity": "significant",
+      "signal_strength": "moderate"
+    }
+  ]
+}

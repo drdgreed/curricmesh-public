@@ -1,0 +1,45 @@
+{
+  "w0-1-what-is-a-widget": [
+    {
+      "id": "Q-W0-01",
+      "lo": "wLO-0.1a",
+      "stem": "Placeholder question: which of these BEST describes a synthetic widget?",
+      "options": [
+        "A fictional object used as placeholder course content.",
+        "A real, sellable product.",
+        "A kind of database index.",
+        "A unit of currency."
+      ],
+      "answer_index": 0,
+      "rationale": "Placeholder rationale: in this synthetic course a widget is a made-up object used only as an example."
+    },
+    {
+      "id": "Q-W0-02",
+      "lo": "wLO-0.1b",
+      "stem": "Placeholder question: how many fictional uses for a widget does this module name?",
+      "options": [
+        "Zero",
+        "One",
+        "Three",
+        "Ten"
+      ],
+      "answer_index": 2,
+      "rationale": "Placeholder rationale: the learning outcomes list three fictional uses."
+    }
+  ],
+  "w1-1-assembling-widgets": [
+    {
+      "id": "Q-W1-01",
+      "lo": "wLO-1.1a",
+      "stem": "Placeholder question: what connects the sprocket to the gizmo during assembly?",
+      "options": [
+        "The flange.",
+        "The API key.",
+        "A migration script.",
+        "Nothing — they float apart."
+      ],
+      "answer_index": 0,
+      "rationale": "Placeholder rationale: in this synthetic course the flange is the fictional connector between sprocket and gizmo."
+    }
+  ]
+}

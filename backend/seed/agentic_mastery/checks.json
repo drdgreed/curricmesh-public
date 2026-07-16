@@ -1,0 +1,25 @@
+{
+  "w0-1-what-is-a-widget": [
+    {
+      "check_id": "w0-1-check-1",
+      "exercise_id": "debug-widget-count",
+      "exercise_type": "debug_nl",
+      "prompt": "Placeholder exercise. The function below is supposed to count the parts in a synthetic widget but always returns 0. Describe the bug and how you would fix it — in your own words.",
+      "code_snippet": "def count_parts(widget):\n    total = 0\n    for part in widget.get(\"parts\", []):\n        total = 0\n        total += 1\n    return total",
+      "canonical_fix": "Placeholder fix: the accumulator `total` is reset to 0 on every loop iteration, so only the last increment survives. Move the `total = 0` initialization outside the loop so the count accumulates.",
+      "concept_tags": ["placeholder-loop-bug", "accumulator-reset"],
+      "misconceptions": [
+        {
+          "tag": "resets-accumulator",
+          "name": "Resets the accumulator inside the loop",
+          "remediation_link": "https://example.com/learn/remedial/accumulator-reset"
+        },
+        {
+          "tag": "returns-early",
+          "name": "Thinks the function returns too early",
+          "remediation_link": "https://example.com/learn/remedial/loop-basics"
+        }
+      ]
+    }
+  ]
+}

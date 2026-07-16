@@ -1,0 +1,43 @@
+[project]
+name = "curricmesh-backend"
+version = "0.1.0"
+description = "CurricMesh API — version control for curriculum"
+requires-python = ">=3.11"
+dependencies = [
+    "fastapi>=0.100.0",
+    "uvicorn[standard]>=0.23.0",
+    "pydantic>=2.0",
+    "pydantic-settings>=2.0",
+    "sqlalchemy[asyncio]>=2.0",
+    "asyncpg>=0.29.0",
+    "alembic>=1.12.0",
+    "psycopg2-binary>=2.9.0",
+    "PyJWT>=2.8.0",
+    "passlib[bcrypt]>=1.7.4",
+    "bcrypt>=3.0.0,<4.1.0",  # 4.1+ dropped __about__ that passlib 1.7.4 reads → noisy (harmless) warning
+    "anthropic>=0.69.0",
+    "feedparser>=6.0",
+    "boto3>=1.34",
+    "pgvector>=0.3.0",
+]
+
+[project.optional-dependencies]
+dev = [
+    "httpx>=0.25.0",
+    "pytest>=7.4.0",
+    "pytest-asyncio>=0.21.0",
+]
+# On-demand, NON-CI semantic eval of the Phase-2 advisory free-text outputs.
+# Kept out of the default install so CI never imports deepeval and the app
+# never depends on it. Install locally with: pip install -e ".[eval]".
+eval = [
+    "deepeval>=1.0.0",
+]
+
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[tool.setuptools.packages.find]
+where = ["."]
+include = ["app*", "seed*"]

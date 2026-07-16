@@ -1,0 +1,40 @@
+{
+  "_meta": {
+    "purpose": "Recorded snapshot of the QA-judge, replayed by ReplayJudge so CI is deterministic and network-free. Keyed by ccr_id (matching qa_human_labels.json). Scores are MOSTLY within +/-1 of the human labels, with four deliberate disagreements (ccr-eval-002 alignment & instructor_support; ccr-eval-004 content_accuracy & prerequisites) so the measured agreement is a realistic ~0.83 across the 24 dimension comparisons, not a trivial 1.0.",
+    "note": "SYNTHETIC / portfolio demo artifact. NOT a live model output."
+  },
+  "judgements": {
+    "ccr-eval-001": {
+      "content_accuracy": {"score": 5, "evidence": "The MCP spec, server development, and capability negotiation are described accurately and reflect the current standard."},
+      "alignment": {"score": 4, "evidence": "Closes the stated MCP gap and aligns with the agent-tool integration outcomes."},
+      "prerequisites": {"score": 4, "evidence": "Builds on the existing function-calling lessons; prerequisite chain is reasonable."},
+      "consistency": {"score": 4, "evidence": "Terminology and module depth match the rest of the curriculum."},
+      "instructor_support": {"score": 5, "evidence": "Ships instructor slides, a graded lab rubric, and two formative quizzes."},
+      "student_experience": {"score": 4, "evidence": "Hands-on lab wiring a multi-agent system to MCP servers supports active learning."}
+    },
+    "ccr-eval-002": {
+      "content_accuracy": {"score": 4, "evidence": "Hybrid dense+sparse search is described correctly, if briefly."},
+      "alignment": {"score": 2, "evidence": "The addition is tangential to the core RAG learning outcomes and feels bolted on."},
+      "prerequisites": {"score": 5, "evidence": "Sits cleanly on top of the existing RAG and vector-DB material."},
+      "consistency": {"score": 4, "evidence": "Matches the depth and style of the surrounding RAG lesson."},
+      "instructor_support": {"score": 4, "evidence": "Two slides and a reading note give instructors enough to deliver it."},
+      "student_experience": {"score": 3, "evidence": "A small slide/reading addition with no lab or assessment is a modest experience gain."}
+    },
+    "ccr-eval-003": {
+      "content_accuracy": {"score": 5, "evidence": "OpenTelemetry span emission and trace ingestion are described accurately and currently."},
+      "alignment": {"score": 5, "evidence": "Directly addresses the production-observability gap and the stated operational outcomes."},
+      "prerequisites": {"score": 5, "evidence": "Explicit prerequisite mapping to the deployment module is provided."},
+      "consistency": {"score": 4, "evidence": "Consistent terminology and depth with the deployment and evaluation modules."},
+      "instructor_support": {"score": 4, "evidence": "Includes an instructor runbook and a reference collector config."},
+      "student_experience": {"score": 5, "evidence": "A capstone-integrated tracing lab makes the material concrete and engaging."}
+    },
+    "ccr-eval-004": {
+      "content_accuracy": {"score": 2, "evidence": "The dataset-construction lesson is underspecified and some fine-tuning details are vague."},
+      "alignment": {"score": 3, "evidence": "Relevant to agentic tasks but positioned as an elective, so alignment to core outcomes is partial."},
+      "prerequisites": {"score": 4, "evidence": "Assumes ML training background the prior modules do not fully establish."},
+      "consistency": {"score": 3, "evidence": "Heavier theory load than the hands-on style of the rest of the curriculum."},
+      "instructor_support": {"score": 2, "evidence": "Instructor guidance is thin and the GPU lab is not provisioned for all cohorts."},
+      "student_experience": {"score": 3, "evidence": "GPU-dependent lab and underspecified dataset work risk an uneven learner experience."}
+    }
+  }
+}

@@ -1,0 +1,330 @@
+{
+  "asset_diff": {
+    "representative": {
+      "asset_key": "cloud-data-eng/v1/01/lesson_plan",
+      "from_semver": "1.0.0",
+      "kind": "lesson_plan",
+      "structured": null,
+      "text": {
+        "added": [
+          "This lesson_plan covers the fundamentals and advanced applications of Data Warehousing Fundamentals \u2014 lesson_plan.",
+          "- Advanced patterns",
+          "- Common pitfalls and how to debug them",
+          "- Further reading"
+        ],
+        "removed": [
+          "This lesson_plan covers the fundamentals of Data Warehousing Fundamentals \u2014 lesson_plan.",
+          "- Common pitfalls"
+        ],
+        "unified": "--- a\n+++ b\n@@ -1,10 +1,12 @@\n # Data Warehousing Fundamentals \u2014 lesson_plan\n \n ## Overview\n-This lesson_plan covers the fundamentals of Data Warehousing Fundamentals \u2014 lesson_plan.\n+This lesson_plan covers the fundamentals and advanced applications of Data Warehousing Fundamentals \u2014 lesson_plan.\n \n ## Outline\n - Motivation and context\n - Core techniques\n+- Advanced patterns\n - Hands-on walkthrough\n-- Common pitfalls\n+- Common pitfalls and how to debug them\n+- Further reading\n"
+      },
+      "to_semver": "1.2.0"
+    },
+    "structured": {
+      "asset_key": "cloud-data-eng/v1/projects/01/rubric",
+      "from_semver": "1.0.0",
+      "kind": "rubric",
+      "structured": {
+        "added": [
+          {
+            "name": "Reproducibility",
+            "weight": 0.1
+          }
+        ],
+        "changed": [
+          {
+            "from": 0.4,
+            "key": "Correctness",
+            "to": 0.35
+          },
+          {
+            "from": 0.2,
+            "key": "Documentation",
+            "to": 0.15
+          }
+        ],
+        "removed": []
+      },
+      "text": null,
+      "to_semver": "1.1.0"
+    }
+  },
+  "dashboard_alignment": {
+    "cloud-data-eng": {
+      "alignment": [
+        {
+          "dependency_key": "cloud-data-eng/v1/01/lesson_plan",
+          "dependency_name": "Week 1: Data Warehousing Fundamentals \u00b7 Lesson Plan",
+          "dependent_is_stale": true,
+          "dependent_key": "cloud-data-eng/v1/01/learning_objectives",
+          "dependent_name": "Week 1: Data Warehousing Fundamentals \u00b7 Learning Objectives"
+        },
+        {
+          "dependency_key": "cloud-data-eng/v1/01/lesson_plan",
+          "dependency_name": "Week 1: Data Warehousing Fundamentals \u00b7 Lesson Plan",
+          "dependent_is_stale": true,
+          "dependent_key": "cloud-data-eng/v1/01/slides",
+          "dependent_name": "Week 1: Data Warehousing Fundamentals \u00b7 Slides"
+        },
+        {
+          "dependency_key": "cloud-data-eng/v1/02/lesson_plan",
+          "dependency_name": "Week 2: Batch & Stream Pipelines \u00b7 Lesson Plan",
+          "dependent_is_stale": true,
+          "dependent_key": "cloud-data-eng/v1/02/assessment",
+          "dependent_name": "Week 2: Batch & Stream Pipelines \u00b7 Assessment"
+        },
+        {
+          "dependency_key": "cloud-data-eng/v1/01/lesson_plan",
+          "dependency_name": "Week 1: Data Warehousing Fundamentals \u00b7 Lesson Plan",
+          "dependent_is_stale": true,
+          "dependent_key": "cloud-data-eng/v1/02/lesson_plan",
+          "dependent_name": "Week 2: Batch & Stream Pipelines \u00b7 Lesson Plan"
+        },
+        {
+          "dependency_key": "cloud-data-eng/v1/03/lesson_plan",
+          "dependency_name": "Week 3: dbt & Analytics Engineering \u00b7 Lesson Plan",
+          "dependent_is_stale": true,
+          "dependent_key": "cloud-data-eng/v1/03/learning_objectives",
+          "dependent_name": "Week 3: dbt & Analytics Engineering \u00b7 Learning Objectives"
+        },
+        {
+          "dependency_key": "cloud-data-eng/v1/03/lesson_plan",
+          "dependency_name": "Week 3: dbt & Analytics Engineering \u00b7 Lesson Plan",
+          "dependent_is_stale": true,
+          "dependent_key": "cloud-data-eng/v1/03/slides",
+          "dependent_name": "Week 3: dbt & Analytics Engineering \u00b7 Slides"
+        },
+        {
+          "dependency_key": "cloud-data-eng/v1/03/lesson_plan",
+          "dependency_name": "Week 3: dbt & Analytics Engineering \u00b7 Lesson Plan",
+          "dependent_is_stale": true,
+          "dependent_key": "cloud-data-eng/v1/04/lesson_plan",
+          "dependent_name": "Week 4: Capstone: End-to-End Data Platform \u00b7 Lesson Plan"
+        },
+        {
+          "dependency_key": "cloud-data-eng/v1/projects/01/rubric",
+          "dependency_name": "Streaming ETL Pipeline \u00b7 Rubric",
+          "dependent_is_stale": true,
+          "dependent_key": "cloud-data-eng/v1/projects/02/rubric",
+          "dependent_name": "Analytics Warehouse Capstone \u00b7 Rubric"
+        }
+      ],
+      "name": "Cloud Data Engineering Essentials"
+    }
+  },
+  "graph": {
+    "edges": [
+      {
+        "edge_type": "supports",
+        "from_key": "cloud-data-eng/v1/01/lesson_plan",
+        "to_key": "cloud-data-eng/v1/01/learning_objectives"
+      },
+      {
+        "edge_type": "supports",
+        "from_key": "cloud-data-eng/v1/01/lesson_plan",
+        "to_key": "cloud-data-eng/v1/01/slides"
+      },
+      {
+        "edge_type": "prerequisite",
+        "from_key": "cloud-data-eng/v1/01/lesson_plan",
+        "to_key": "cloud-data-eng/v1/02/lesson_plan"
+      },
+      {
+        "edge_type": "supports",
+        "from_key": "cloud-data-eng/v1/02/lesson_plan",
+        "to_key": "cloud-data-eng/v1/02/assessment"
+      },
+      {
+        "edge_type": "supports",
+        "from_key": "cloud-data-eng/v1/02/lesson_plan",
+        "to_key": "cloud-data-eng/v1/02/slides"
+      },
+      {
+        "edge_type": "prerequisite",
+        "from_key": "cloud-data-eng/v1/02/lesson_plan",
+        "to_key": "cloud-data-eng/v1/03/lesson_plan"
+      },
+      {
+        "edge_type": "supports",
+        "from_key": "cloud-data-eng/v1/03/lesson_plan",
+        "to_key": "cloud-data-eng/v1/03/learning_objectives"
+      },
+      {
+        "edge_type": "supports",
+        "from_key": "cloud-data-eng/v1/03/lesson_plan",
+        "to_key": "cloud-data-eng/v1/03/slides"
+      },
+      {
+        "edge_type": "prerequisite",
+        "from_key": "cloud-data-eng/v1/03/lesson_plan",
+        "to_key": "cloud-data-eng/v1/04/lesson_plan"
+      },
+      {
+        "edge_type": "supports",
+        "from_key": "cloud-data-eng/v1/04/lesson_plan",
+        "to_key": "cloud-data-eng/v1/04/assessment"
+      },
+      {
+        "edge_type": "supports",
+        "from_key": "cloud-data-eng/v1/04/lesson_plan",
+        "to_key": "cloud-data-eng/v1/04/slides"
+      },
+      {
+        "edge_type": "prerequisite",
+        "from_key": "cloud-data-eng/v1/04/lesson_plan",
+        "to_key": "cloud-data-eng/v1/projects/01/rubric"
+      },
+      {
+        "edge_type": "prerequisite",
+        "from_key": "cloud-data-eng/v1/04/lesson_plan",
+        "to_key": "cloud-data-eng/v1/projects/02/rubric"
+      },
+      {
+        "edge_type": "prerequisite",
+        "from_key": "cloud-data-eng/v1/projects/01/rubric",
+        "to_key": "cloud-data-eng/v1/projects/02/rubric"
+      }
+    ],
+    "misaligned": [
+      "cloud-data-eng/v1/01/learning_objectives",
+      "cloud-data-eng/v1/01/slides",
+      "cloud-data-eng/v1/02/assessment",
+      "cloud-data-eng/v1/02/lesson_plan",
+      "cloud-data-eng/v1/03/learning_objectives",
+      "cloud-data-eng/v1/03/slides",
+      "cloud-data-eng/v1/04/lesson_plan",
+      "cloud-data-eng/v1/projects/02/rubric"
+    ],
+    "nodes": [
+      {
+        "key": "cloud-data-eng/v1/01/learning_objectives",
+        "kind": "learning_objectives",
+        "label": "Week 1: Data Warehousing Fundamentals \u00b7 Learning Objectives",
+        "latest_version": "1.1.0",
+        "misaligned": true,
+        "status": "active"
+      },
+      {
+        "key": "cloud-data-eng/v1/01/lesson_plan",
+        "kind": "lesson_plan",
+        "label": "Week 1: Data Warehousing Fundamentals \u00b7 Lesson Plan",
+        "latest_version": "1.2.0",
+        "misaligned": false,
+        "status": "active"
+      },
+      {
+        "key": "cloud-data-eng/v1/01/slides",
+        "kind": "slides",
+        "label": "Week 1: Data Warehousing Fundamentals \u00b7 Slides",
+        "latest_version": "1.1.0",
+        "misaligned": true,
+        "status": "active"
+      },
+      {
+        "key": "cloud-data-eng/v1/02/assessment",
+        "kind": "assessment",
+        "label": "Week 2: Batch & Stream Pipelines \u00b7 Assessment",
+        "latest_version": "1.0.0",
+        "misaligned": true,
+        "status": "active"
+      },
+      {
+        "key": "cloud-data-eng/v1/02/lesson_plan",
+        "kind": "lesson_plan",
+        "label": "Week 2: Batch & Stream Pipelines \u00b7 Lesson Plan",
+        "latest_version": "1.1.0",
+        "misaligned": true,
+        "status": "active"
+      },
+      {
+        "key": "cloud-data-eng/v1/02/slides",
+        "kind": "slides",
+        "label": "Week 2: Batch & Stream Pipelines \u00b7 Slides",
+        "latest_version": "1.1.0",
+        "misaligned": false,
+        "status": "approved"
+      },
+      {
+        "key": "cloud-data-eng/v1/03/learning_objectives",
+        "kind": "learning_objectives",
+        "label": "Week 3: dbt & Analytics Engineering \u00b7 Learning Objectives",
+        "latest_version": "1.0.0",
+        "misaligned": true,
+        "status": "draft"
+      },
+      {
+        "key": "cloud-data-eng/v1/03/lesson_plan",
+        "kind": "lesson_plan",
+        "label": "Week 3: dbt & Analytics Engineering \u00b7 Lesson Plan",
+        "latest_version": "1.1.0",
+        "misaligned": false,
+        "status": "active"
+      },
+      {
+        "key": "cloud-data-eng/v1/03/slides",
+        "kind": "slides",
+        "label": "Week 3: dbt & Analytics Engineering \u00b7 Slides",
+        "latest_version": "1.0.0",
+        "misaligned": true,
+        "status": "active"
+      },
+      {
+        "key": "cloud-data-eng/v1/04/assessment",
+        "kind": "assessment",
+        "label": "Week 4: Capstone: End-to-End Data Platform \u00b7 Assessment",
+        "latest_version": "1.0.0",
+        "misaligned": false,
+        "status": "review"
+      },
+      {
+        "key": "cloud-data-eng/v1/04/lesson_plan",
+        "kind": "lesson_plan",
+        "label": "Week 4: Capstone: End-to-End Data Platform \u00b7 Lesson Plan",
+        "latest_version": "1.0.0",
+        "misaligned": true,
+        "status": "active"
+      },
+      {
+        "key": "cloud-data-eng/v1/04/slides",
+        "kind": "slides",
+        "label": "Week 4: Capstone: End-to-End Data Platform \u00b7 Slides",
+        "latest_version": "1.0.0",
+        "misaligned": false,
+        "status": "active"
+      },
+      {
+        "key": "cloud-data-eng/v1/projects/01/rubric",
+        "kind": "rubric",
+        "label": "Streaming ETL Pipeline \u00b7 Rubric",
+        "latest_version": "1.1.0",
+        "misaligned": false,
+        "status": "active"
+      },
+      {
+        "key": "cloud-data-eng/v1/projects/01/spec",
+        "kind": "spec",
+        "label": "Streaming ETL Pipeline \u00b7 Spec",
+        "latest_version": "1.1.0",
+        "misaligned": false,
+        "status": "active"
+      },
+      {
+        "key": "cloud-data-eng/v1/projects/02/rubric",
+        "kind": "rubric",
+        "label": "Analytics Warehouse Capstone \u00b7 Rubric",
+        "latest_version": "1.0.0",
+        "misaligned": true,
+        "status": "active"
+      },
+      {
+        "key": "cloud-data-eng/v1/projects/02/spec",
+        "kind": "spec",
+        "label": "Analytics Warehouse Capstone \u00b7 Spec",
+        "latest_version": "1.0.0",
+        "misaligned": false,
+        "status": "review"
+      }
+    ]
+  },
+  "slug": "cloud-data-eng"
+}

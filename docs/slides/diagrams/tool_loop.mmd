@@ -1,0 +1,6 @@
+flowchart LR
+    A[Receive widget order] --> B[Select parts]
+    B --> C[Assemble]
+    C --> D{Passes check?}
+    D -- yes --> E[Ship widget]
+    D -- no --> B

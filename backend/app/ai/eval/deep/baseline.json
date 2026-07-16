@@ -1,0 +1,34 @@
+{
+  "1. STRONG": {
+    "andragogy_groundedness": 0.8,
+    "actionability": 0.8,
+    "non_hallucination": 0.8,
+    "conciseness": 0.8,
+    "advisory_framing": 0.8,
+    "advisory_dag": null
+  },
+  "2. WEAK": {
+    "andragogy_groundedness": 0.8,
+    "actionability": 0.8,
+    "non_hallucination": 0.8,
+    "conciseness": 0.8,
+    "advisory_framing": 0.8,
+    "advisory_dag": null
+  },
+  "3. STRONG": {
+    "andragogy_groundedness": 0.8,
+    "actionability": 0.8,
+    "non_hallucination": 0.8,
+    "conciseness": 0.8,
+    "advisory_framing": 0.8,
+    "advisory_dag": null
+  },
+  "4. WEAK": {
+    "andragogy_groundedness": 0.8,
+    "actionability": 0.8,
+    "non_hallucination": 0.8,
+    "conciseness": 0.8,
+    "advisory_framing": 0.8,
+    "advisory_dag": null
+  }
+}

@@ -1,0 +1,19 @@
+# Keep the runtime image lean and secret-free.
+__pycache__/
+*.pyc
+*.pyo
+.pytest_cache/
+.mypy_cache/
+venv/
+.venv/
+.env
+*.env
+
+# Test suite is not needed in a runtime image.
+tests/
+
+# Local artifacts / docs that don't belong in the image.
+ai_eval_report.md
+docs/
+*.md
+.DS_Store

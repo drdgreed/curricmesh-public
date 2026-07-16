@@ -1,0 +1,28 @@
+# Python
+__pycache__/
+*.pyc
+.venv/
+venv/
+# Node
+node_modules/
+# Env / secrets
+.env
+.env.*
+!.env.example
+# Build
+dist/
+build/
+
+# Python editable-install metadata
+*.egg-info/
+
+# C4 AI eval — generated report artifact (published in CI, never committed)
+backend/ai_eval_report.md
+
+# DeepEval semantic-eval slice — local telemetry + generated report
+backend/.deepeval/
+backend/app/ai/eval/deep/last_deep_eval_report.md
+
+# macOS
+.DS_Store
+.vercel
